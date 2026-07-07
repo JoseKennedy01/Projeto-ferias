@@ -1,0 +1,102 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --cor0: #F5F5F5;
+    --cor1: #C6FF00;
+    --cor2: #FF5C00;
+    --cor3: #0D0D0D;
+
+    /*Fontes*/
+    --padrao: "Montserrat", sans-serif;
+    --titulo: "Bebas Neue", sans-serif;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: rgba(0, 0, 0, 0.212);
+}
+
+header { 
+    font-family: var(--titulo);
+    background-color: var(--cor1);
+    padding: 15px;
+    text-align: center;
+    background-image: linear-gradient(to top, var(--cor1), var(--cor2));
+    color: white;
+    text-shadow: 2px 2px 0 black;
+}
+
+header p {
+    font: bold 1.3em var(--padrao);
+    padding: 10px;
+    text-shadow: 2px 1px 0px black;
+}
+
+nav {
+    background-color: var(--cor1);
+    padding-bottom: 11px;
+    box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.200);
+}
+
+nav a {
+    font: bold 1.1em var(--padrao);
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    text-shadow: 1px 1px 0px black;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background-color: rgba(255, 94, 0, 0.600);
+    color: rgb(206, 253, 34);
+    text-decoration: underline;
+}
+
+section.descricao {
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+    border-bottom: solid 2px black;
+    padding: 10px;
+}
+
+section.descricao h2 {
+    color: var(--cor2);
+    font: bolder 3em var(--titulo);
+}
+
+section.descricao p {
+    text-shadow: 2px 1px 0px black;
+    font: bold 1.3em white;
+}
+
+section.descricao a {
+    width: 25%;
+    color: var(--cor0);
+    background-color: var(--cor1);
+    border: 2px solid black;
+    padding: 2px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 15px 0px;
+    font: bold 1.1em var(--padrao);
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    text-shadow: 1px 1px 0px black;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+section.descricao a:hover {
+    background-color: rgba(255, 94, 0, 0.600);
+    color: rgb(206, 253, 34);
+    text-decoration: underline;
+}

@@ -2,10 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-    --cor0: #F5F5F5;
-    --cor1: #C6FF00;
-    --cor2: #FF5C00;
-    --cor3: #0D0D0D;
+    --card: #F4F4F2;
+    --borda: #E0E0E0;
+    --sec-text: #646464;
+    --dest: #C6FF00;
+    --terc-cor: #FF5C00;
 
     /*Fontes*/
     --padrao: "Montserrat", sans-serif;
@@ -17,16 +18,12 @@
     padding: 0px;
 }
 
-body {
-    background-color: rgba(0, 0, 0, 0.212);
-}
-
 header { 
     font-family: var(--titulo);
     background-color: var(--cor1);
     padding: 15px;
     text-align: center;
-    background-image: linear-gradient(to top, var(--cor1), var(--cor2));
+    background-image: linear-gradient(to top, var(--dest), var(--terc-cor));
     color: white;
     text-shadow: 2px 2px 0 black;
 }
@@ -38,7 +35,7 @@ header p {
 }
 
 nav {
-    background-color: var(--cor1);
+    background-color: var(--dest);
     padding-bottom: 11px;
     box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.200);
 }
@@ -62,13 +59,13 @@ nav a:hover {
 section.descricao {
     text-align: center;
     margin-top: 20px;
-    color: white;
+    color: rgba(255, 255, 255, 0.534);
     border-bottom: solid 2px black;
     padding: 10px;
 }
 
 section.descricao h2 {
-    color: var(--cor2);
+    color: var(--terc-cor);
     font: bolder 3em var(--titulo);
 }
 
@@ -80,7 +77,7 @@ section.descricao p {
 section.descricao a {
     width: 25%;
     color: var(--cor0);
-    background-color: var(--cor1);
+    background-color: var(--dest);
     border: 2px solid black;
     padding: 2px;
     text-decoration: none;
@@ -99,4 +96,26 @@ section.descricao a:hover {
     background-color: rgba(255, 94, 0, 0.600);
     color: rgb(206, 253, 34);
     text-decoration: underline;
+}
+
+.feedback {
+    text-align: center;
+    font-family: var(--titulo);
+}
+
+.box {
+    background-color: var(--card);
+    padding: 20px;
+    border: 2px solid black;
+    margin: 0px 30%;
+    border-radius: 10px;
+}
+
+.esq {
+    text-align: left;
+    margin-left: 30px;
+}
+
+input {
+    padding: 10px;
 }

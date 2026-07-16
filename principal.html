@@ -4,15 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fitness Stok</title>
-    <link rel="stylesheet" href="../estilos/principal.css">
-    <link rel="shortcut icon" href="imagens/" type="image/x-icon">
+    <link rel="stylesheet" href="estilos/principal.css">
+    <link rel="stylesheet" href="estilos/media-queries.css">
+    <link rel="shortcut icon" href="imagens/favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>Fitness Stok</h1>
-        <p>Tudo que você precisa para começar na musculação em um só lugar.</p>
+        <h1>Fitness <br> Stok</h1>
+        <label for="ibusca"></label>
+        <input type="search" name="busca" id="ibusca" placeholder="O que você deseja procurar?" minlength="5" maxlength="50">
+        <span class="material-icons" id="busca">search</span>
+        <span class="material-icons" id="carrinho">shopping_cart</span>
     </header>
 
+    <span id="burguer" class="material-icons" onclick="clickMenu()">menu</span>
     <nav>
         <a href="paginas/roupas.html">Vestimentas</a>
         <a href="paginas/treino.html">Treinos</a>
@@ -27,25 +33,50 @@
                 <a href="paginas/saiba-mais.html">Saiba mais</a>
         </section>
 
+        <section class="somos">
+            <img src="imagens/homem-treinando.png" alt="Homem treinando">
+
+            <p>QUEM SOMOS</p>
+            <h2>FITNESS STOK</h2>
+            <p>A Fitness Stok é uma loja online voltada pra quem leva o treino a sério. Reunimos vestimentas, acessórios e suplementos selecionados com qualidade de academia e estética <a href="#">streetwear</a>, além de conteúdo de treinos pra quem quer evoluir de verdade, tudo em um só lugar, sem enrolação.</p>
+        </section>
+
         <section class="feedback">
 
         </section>
-        <div class="feedback">
-            <h2>FALE COM A GENTE</h2>
-            <div class="box">
-                <p class="esq">Nome:</p>
-                <input type="text">
-                <p class="esq">Email:</p>
-                <input type="email" name="" id="">
-                <p class="esq">Descrição:</p>
-                <input type="text" name="" id="" placeholder="bota a descrição aqui">
-            </div>
-        </div>
+        
+        <section class="feedback">
+            <h2>Fale Conosco</h2>
+            <form action="#" method="get"> 
+                <div class="box">
+                    <p>
+                        <label for="inome">Nome</label>
+                        <input type="text" name="nome" id="inome" required placeholder="Seu nome completo" minlength="10" maxlength="60" autocomplete="name">
+                    </p>
+                    <br>
+                    <p>
+                        <label for="iemail">Email</label>
+                        <input type="text" name="email" id="iemail" required autocomplete="email" placeholder="seuemail@gmail.com">
+                    </p>
+                    <br>
+                    <p>
+                        <label for="idesc">Descrição</label>
+                        <textarea name="desc" id="idesc" required minlength="20" maxlength="500" placeholder="Sua descrição"></textarea>
+                    </p>
+                    
+                    <input type="button" value="Enviar" class="botao">
+                    <input type="reset" value="Limpar">
+                </div>
+            </form>
+            
+            </section>
 
     </main>
 
     <footer>
 
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

@@ -4,9 +4,9 @@
 :root {
     --card: #F4F4F2;
     --borda: #E0E0E0;
-    --sec-text: #646464;
-    --dest: #C6FF00;
-    --terc-cor: #FF5C00;
+    --sec-text: #3f3f3f;
+    --dest: #A8E000;
+    --terc-cor: #0D0D0D;
 
     /*Fontes*/
     --padrao: "Montserrat", sans-serif;
@@ -20,47 +20,106 @@
 
 header { 
     font-family: var(--titulo);
-    background-color: var(--cor1);
     padding: 15px;
-    text-align: center;
-    background-image: linear-gradient(to top, var(--dest), var(--terc-cor));
+    background-image: linear-gradient(to bottom, var(--dest), var(--terc-cor));
     color: white;
     text-shadow: 2px 2px 0 black;
 }
 
-header p {
-    font: bold 1.3em var(--padrao);
-    padding: 10px;
-    text-shadow: 2px 1px 0px black;
+header h1 {
+    font-size: 3em;
+    line-height: 0.9;
+    display: inline-block;
+    text-align: center;
+}
+
+header input {
+    background-color: white;
+    width: 45%;
+    padding: 10.7px;
+    margin-bottom: 5px;
+    border-radius: 10px 0px 0px 10px;
+    border: whitesmoke;
+    transform: translate(10%, -60%);
+}
+
+header input:focus {
+    outline: none;
+}
+
+header span#busca {
+    padding: 6px;
+    border-radius: 0px 10px 10px 0px;
+    color: black;
+    text-shadow: none;
+    background-color: white;
+    transform: translate(47%, -39%);
+}
+
+header span#carrinho {
+    background-color: #0A7A42;
+    font-size: 2em;
+    text-shadow: none;
+    border: 2px solid black;
+    border-radius: 50%;
+    padding: 15px;
+    position: fixed;
+    bottom: 20px;
+    right: 50px;
+    transform: translate(50%, -30%);
+}
+
+#burguer {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2em;
+    color: white;
+    cursor: pointer;
+    z-index: 20;
 }
 
 nav {
-    background-color: var(--dest);
+    background-color: var(--terc-cor);
     padding-bottom: 11px;
     box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.200);
+    display: flex;
+    flex-direction: column;
+    max-height: 0;
+    overflow: hidden;
+    padding-bottom: 0;
+    transition: max-height 0.35s ease;
 }
 
 nav a {
     font: bold 1.1em var(--padrao);
     color: white;
-    padding: 10px;
+    padding: 14px 10px;
     text-decoration: none;
     text-shadow: 1px 1px 0px black;
+    text-align: center;
     border-radius: 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     transition: 0.3s;
 }
 
 nav a:hover {
-    background-color: rgba(255, 94, 0, 0.600);
-    color: rgb(206, 253, 34);
+    background-color: rgba(154, 255, 2, 0.863);
+    color: white;
     text-decoration: underline;
 }
+
+nav.aberto {
+    max-height: 300px;
+    padding-bottom: 10px;
+    }
 
 section.descricao {
     text-align: center;
     margin-top: 20px;
-    color: rgba(255, 255, 255, 0.534);
-    border-bottom: solid 2px black;
+    color: var(--sec-text);
+    border-bottom: 2px solid black;
     padding: 10px;
 }
 
@@ -70,52 +129,79 @@ section.descricao h2 {
 }
 
 section.descricao p {
-    text-shadow: 2px 1px 0px black;
-    font: bold 1.3em white;
+    font: bold 1.1em var(--padrao);
 }
 
 section.descricao a {
-    width: 25%;
-    color: var(--cor0);
+    width: 22%;
+    color: var(--terc-cor);
     background-color: var(--dest);
     border: 2px solid black;
-    padding: 2px;
+    padding: 8px;
     text-decoration: none;
+    text-shadow: none;
     display: inline-block;
     margin: 15px 0px;
     font: bold 1.1em var(--padrao);
-    color: white;
-    padding: 10px;
-    text-decoration: none;
-    text-shadow: 1px 1px 0px black;
-    border-radius: 5px;
+    border-radius: 10px;
     transition: 0.3s;
 }
 
 section.descricao a:hover {
-    background-color: rgba(255, 94, 0, 0.600);
-    color: rgb(206, 253, 34);
+    background-color: rgb(13, 13, 13);
+    color: var(--dest);
     text-decoration: underline;
 }
 
-.feedback {
+section.somos{
     text-align: center;
-    font-family: var(--titulo);
+    border-bottom: 2px solid black;
+    padding-bottom: 20px;
+}
+
+section.somos h2 {
+    font: bold 2em var(--titulo);
+}
+
+section.somos p {
+    font: normal 0.9em var(--padrao);
+    line-height: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+section.feedback {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+section.feedback h2 {
+    padding: 10px;
+    font: bold 1.8em var(--titulo);
+    text-align: center;
 }
 
 .box {
     background-color: var(--card);
-    padding: 20px;
+    padding: 10px;
     border: 2px solid black;
-    margin: 0px 30%;
+    margin: 0px 19%;
     border-radius: 10px;
 }
 
 .esq {
     text-align: left;
-    margin-left: 30px;
+    margin-left: 10px;
 }
 
-input {
-    padding: 10px;
+section.feedback input {
+    padding: 3px;
+}
+
+section.feedback textarea#idesc {
+    width: 270px;
+    height: 200px;
+}
+
+section.feedback input.botao {
+    margin-top: 5px;
 }

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar conta</title>
+    <link rel="stylesheet" href="../estilos/cadastro.css">
+    <link rel="shortcut icon" href="../imagens/favicon.png" type="image/x-icon">
+</head>
+<body>
+    <main class="cadastro-wrap">
+        <section class="cadastro-info">
+            <h1>FITNESS STOK</h1>
+            <p class="frase">Treine. Evolua. Repita.</p>
+            <ul class="beneficios">
+                <li>Acompanhe seus pedidos em tempo real</li>
+                <li>Acesso antecipado a promoções</li>
+                <li>Salve seus produtos favoritos</li>
+            </ul>
+        </section>
+
+        <section class="cadastro-caixa">
+            <form action="#" method="post">
+                <h2>Criar conta</h2>
+                <p class="subtitulo">Leva menos de um minuto</p>
+
+                <label for="nome">Nome completo</label>
+                <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required minlength="3" maxlength="60" autocomplete="name">
+
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="seuemail@gmail.com" required autocomplete="email">
+
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" placeholder="Crie uma senha" required minlength="8" maxlength="20" autocomplete="new-password" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,20}" title="A senha deve ter letras maiúsculas, minúsculas, números e caracteres especiais">
+
+                <ul class="requisitos" id="requisitos-senha">
+                    <li data-regra="tamanho">Pelo menos 8 caracteres</li>
+                    <li data-regra="maiuscula">Uma letra maiúscula</li>
+                    <li data-regra="minuscula">Uma letra minúscula</li>
+                    <li data-regra="numero">Um número</li>
+                    <li data-regra="especial">Um caractere especial (ex: !@#$%)</li>
+                </ul>
+
+                <label for="confirmar">Confirmar senha</label>
+                <input type="password" id="confirmar" name="confirmar" placeholder="Repita a senha" required minlength="8" maxlength="20" autocomplete="new-password">
+                <p class="msg-senha" id="msg-senha"></p>
+
+                <button type="submit" id="botao-cadastro" disabled>Criar conta</button>
+
+                <a href="login.html" class="voltar">Já tem uma conta? Entrar</a>
+            </form>
+        </section>
+    </main>
+
+    <script src="../scripts/cadastro.js"></script>
+</body>
+</html>

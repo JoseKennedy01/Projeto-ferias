@@ -11,19 +11,30 @@
 </head>
 <body>
     <header>
+        <span id="burguer" class="material-icons" onclick="clickMenu()">menu</span>
+
         <h1>Fitness <br> Stok</h1>
-        <label for="ibusca"></label>
-        <input type="search" name="busca" id="ibusca" placeholder="O que você deseja procurar?" minlength="5" maxlength="50">
-        <span class="material-icons" id="busca">search</span>
+
+        <a href="paginas/login.html" class="login-link">
+            <span class="material-icons">account_circle</span>
+            <span class="login-texto">Login</span>
+        </a>
+
+        <label for="busca"></label>
+        <div class="busca">
+            <input type="search" name="busca" id="busca" placeholder="O que você deseja procurar?" minlength="5" maxlength="50">
+            <span class="material-icons" id="busca-icone" onclick="acionarBusca()">search</span>
+        </div>
+
         <span class="material-icons" id="carrinho">shopping_cart</span>
     </header>
 
-    <span id="burguer" class="material-icons" onclick="clickMenu()">menu</span>
     <nav>
         <a href="paginas/roupas.html">Vestimentas</a>
         <a href="paginas/treino.html">Treinos</a>
         <a href="paginas/sup.html">Suplementos</a>
         <a href="paginas/acessorios.html">Acessórios</a>
+        <a href="paginas/login.html" class="nav-login">Login</a>
     </nav>
 
     <main>
@@ -50,18 +61,18 @@
             <form action="#" method="get"> 
                 <div class="box">
                     <p>
-                        <label for="inome">Nome</label>
-                        <input type="text" name="nome" id="inome" required placeholder="Seu nome completo" minlength="10" maxlength="60" autocomplete="name">
+                        <label for="nome">Nome</label>
+                        <input type="text" name="nome" id="nome" required placeholder="Seu nome completo" minlength="10" maxlength="60" autocomplete="name">
                     </p>
                     <br>
                     <p>
-                        <label for="iemail">Email</label>
-                        <input type="text" name="email" id="iemail" required autocomplete="email" placeholder="seuemail@gmail.com">
+                        <label for="email">Email</label>
+                        <input type="text" name="email" id="email" required autocomplete="email" placeholder="seuemail@gmail.com">
                     </p>
                     <br>
                     <p>
-                        <label for="idesc">Descrição</label>
-                        <textarea name="desc" id="idesc" required minlength="20" maxlength="500" placeholder="Sua descrição"></textarea>
+                        <label for="desc">Descrição</label>
+                        <textarea name="desc" id="desc" required minlength="20" maxlength="500" placeholder="Sua descrição"></textarea>
                     </p>
                     
                     <input type="button" value="Enviar" class="botao">
@@ -77,6 +88,6 @@
 
     </footer>
 
-    <script src="script.js"></script>
+    <script src="scripts/principal.js"></script>
 </body>
 </html>

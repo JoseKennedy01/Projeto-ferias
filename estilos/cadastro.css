@@ -1,0 +1,240 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --card: #F4F4F2;
+    --borda: #E0E0E0;
+    --sec-text: #3f3f3f;
+    --dest: #A8E000;
+    --terc-cor: #0D0D0D;
+
+    --padrao: "Montserrat", sans-serif;
+    --titulo: "Bebas Neue", sans-serif;
+}
+
+*, *::before, *::after {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--padrao);
+    background-color: var(--card);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+main.cadastro-wrap {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+main section.cadastro-info {
+    background-image: linear-gradient(135deg, var(--dest), var(--terc-cor));
+    color: white;
+    text-shadow: 1px 1px 0 black;
+    padding: clamp(24px, 4vw, 40px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+}
+
+main section.cadastro-info h1 {
+    font-family: var(--titulo);
+    font-size: clamp(1.8em, 4vw, 2.3em);
+    line-height: 1;
+}
+
+main section.cadastro-info .frase {
+    font-weight: bold;
+    opacity: 0.9;
+}
+
+main section.cadastro-info ul.beneficios {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.9em;
+}
+
+main section.cadastro-info ul.beneficios li {
+    padding-left: 22px;
+    position: relative;
+}
+
+main section.cadastro-info ul.beneficios li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-weight: bold;
+    color: var(--terc-cor);
+    background-color: white;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75em;
+    text-shadow: none;
+}
+
+main section.cadastro-caixa {
+    padding: clamp(24px, 4vw, 40px);
+    display: flex;
+    align-items: center;
+}
+
+main section.cadastro-caixa form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+main section.cadastro-caixa h2 {
+    font-family: var(--titulo);
+    font-size: clamp(1.6em, 3vw, 2em);
+    color: var(--terc-cor);
+    line-height: 1;
+}
+
+main section.cadastro-caixa .subtitulo {
+    color: var(--sec-text);
+    font-size: 0.9em;
+    margin-bottom: 4px;
+}
+
+main section.cadastro-caixa label {
+    font-size: 0.85em;
+    font-weight: bold;
+    color: var(--terc-cor);
+}
+
+main section.cadastro-caixa input {
+    padding: 10px 12px;
+    border: 2px solid var(--borda);
+    border-radius: 8px;
+    font-family: var(--padrao);
+    font-size: 0.95em;
+    background-color: var(--card);
+}
+
+main section.cadastro-caixa input:focus {
+    outline: none;
+    border-color: var(--terc-cor);
+}
+
+main section.cadastro-caixa button {
+    margin-top: 8px;
+    padding: 12px;
+    background-color: var(--terc-cor);
+    color: var(--dest);
+    border: 2px solid black;
+    border-radius: 8px;
+    font: bold 1.1em var(--padrao);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+main section.cadastro-caixa button:hover {
+    background-color: var(--dest);
+    color: var(--terc-cor);
+}
+
+main section.cadastro-caixa .requisitos {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-top: -4px;
+    margin-bottom: 2px;
+    font-size: 0.78em;
+    color: var(--sec-text);
+}
+
+main section.cadastro-caixa .requisitos li {
+    padding-left: 18px;
+    position: relative;
+}
+
+main section.cadastro-caixa .requisitos li::before {
+    content: "✕";
+    position: absolute;
+    left: 0;
+    color: #c0392b;
+    font-weight: bold;
+    font-size: 0.85em;
+}
+
+main section.cadastro-caixa .requisitos li.ok {
+    color: var(--terc-cor);
+}
+
+main section.cadastro-caixa .requisitos li.ok::before {
+    content: "✓";
+    color: #2e8b3d;
+}
+
+main section.cadastro-caixa .msg-senha {
+    font-size: 0.8em;
+    margin-top: -6px;
+    min-height: 1.1em;
+}
+
+main section.cadastro-caixa .msg-senha.erro {
+    color: #c0392b;
+}
+
+main section.cadastro-caixa .msg-senha.sucesso {
+    color: #2e8b3d;
+}
+
+main section.cadastro-caixa button:disabled {
+    background-color: var(--borda);
+    color: var(--sec-text);
+    border-color: var(--borda);
+    cursor: not-allowed;
+}
+
+main section.cadastro-caixa button:disabled:hover {
+    background-color: var(--borda);
+    color: var(--sec-text);
+}
+
+main section.cadastro-caixa .voltar {
+    margin-top: 2px;
+    text-align: center;
+    font-size: 0.85em;
+    color: var(--sec-text);
+    text-decoration: none;
+}
+
+main section.cadastro-caixa .voltar:hover {
+    text-decoration: underline;
+    color: var(--terc-cor);
+}
+
+@media (min-width: 700px) {
+    .cadastro-wrap {
+        flex-direction: row;
+    }
+
+    .cadastro-info,
+    .cadastro-caixa {
+        flex: 1;
+    }
+}

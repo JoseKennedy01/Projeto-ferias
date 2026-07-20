@@ -13,83 +13,152 @@
     --titulo: "Bebas Neue", sans-serif;
 }
 
-*{
+*, *::before, *::after {
     margin: 0px;
     padding: 0px;
+    box-sizing: border-box;
 }
 
-header { 
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+header {
     font-family: var(--titulo);
-    padding: 15px;
+    padding: 12px 15px;
     background-image: linear-gradient(to bottom, var(--dest), var(--terc-cor));
     color: white;
     text-shadow: 2px 2px 0 black;
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    display: grid;
+    grid-template-columns: 44px 1fr 44px;
+    grid-template-areas:
+        "burguer title  carrinho"
+        "busca   busca  busca";
+    align-items: center;
+    gap: 10px 8px;
 }
 
 header h1 {
-    font-size: 3em;
+    grid-area: title;
+    font-size: clamp(1.4rem, 1rem + 2vw, 2.6rem);
     line-height: 0.9;
-    display: inline-block;
     text-align: center;
 }
 
-header input {
+header label {
+    display: none;
+}
+
+span#burguer {
+    grid-area: burguer;
+    justify-self: start;
+    font-size: 1.8em;
+    line-height: 1;
+    color: white;
+    cursor: pointer;
+}
+
+header div.busca {
+    grid-area: busca;
+    display: flex;
+    align-items: center;
     background-color: white;
-    width: 45%;
-    padding: 10.7px;
-    margin-bottom: 5px;
-    border-radius: 10px 0px 0px 10px;
-    border: whitesmoke;
-    transform: translate(10%, -60%);
-}
-
-header input:focus {
-    outline: none;
-}
-
-header span#busca {
-    padding: 6px;
-    border-radius: 0px 10px 10px 0px;
-    color: black;
+    border-radius: 10px;
+    overflow: hidden;
     text-shadow: none;
-    background-color: white;
-    transform: translate(47%, -39%);
+    transition: box-shadow 0.2s ease;
+}
+
+header div.busca.focada {
+    box-shadow: 0 0 0 2px var(--dest);
+}
+
+header div.busca input#busca {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    padding: 10px;
+    background: transparent;
+    font-size: clamp(0.75rem, 0.65rem + 0.4vw, 0.95rem);
+}
+
+header div.busca span#busca-icone {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    color: black;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+header a.login-link {
+    grid-area: login;
+    justify-self: end;
+    display: none;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+}
+
+header a.login-link span.material-icons {
+    color: white;
+    font-size: clamp(1.4rem, 1.1rem + 1vw, 1.9rem);
+    text-shadow: none;
+}
+
+header a.login-link span.login-texto {
+    display: none;
+    font: bold 0.95em var(--padrao);
+    color: white;
+    text-shadow: none;
+    white-space: nowrap;
 }
 
 header span#carrinho {
-    background-color: #0A7A42;
-    font-size: 2em;
+    grid-area: carrinho;
+    justify-self: end;
+    background-color: var(--dest);
+    color: white;
     text-shadow: none;
     border: 2px solid black;
     border-radius: 50%;
-    padding: 15px;
-    position: fixed;
-    bottom: 20px;
-    right: 50px;
-    transform: translate(50%, -30%);
-}
-
-#burguer {
-    display: block;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 2em;
-    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(1.3rem, 1.1rem + 0.6vw, 1.7rem);
+    padding: clamp(7px, 0.5vw + 5px, 10px);
+    flex-shrink: 0;
     cursor: pointer;
-    z-index: 20;
 }
 
 nav {
     background-color: var(--terc-cor);
-    padding-bottom: 11px;
     box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.200);
     display: flex;
     flex-direction: column;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: var(--header-altura, 72px);
     max-height: 0;
-    overflow: hidden;
-    padding-bottom: 0;
+    overflow-y: auto;
     transition: max-height 0.35s ease;
+    z-index: 25;
+}
+
+nav.aberto {
+    max-height: calc(100dvh - var(--header-altura, 72px));
+    padding-bottom: 10px;
 }
 
 nav a {
@@ -110,37 +179,31 @@ nav a:hover {
     text-decoration: underline;
 }
 
-nav.aberto {
-    max-height: 300px;
-    padding-bottom: 10px;
-    }
-
 section.descricao {
     text-align: center;
     margin-top: 20px;
     color: var(--sec-text);
     border-bottom: 2px solid black;
-    padding: 10px;
+    padding: 15px 10px;
 }
 
 section.descricao h2 {
     color: var(--terc-cor);
-    font: bolder 3em var(--titulo);
+    font: bolder clamp(1.6em, 1.1em + 2vw, 3em) var(--titulo);
 }
 
 section.descricao p {
-    font: bold 1.1em var(--padrao);
+    font: bold 1em var(--padrao);
 }
 
 section.descricao a {
-    width: 22%;
+    display: inline-block;
     color: var(--terc-cor);
     background-color: var(--dest);
     border: 2px solid black;
-    padding: 8px;
+    padding: 10px 22px;
     text-decoration: none;
     text-shadow: none;
-    display: inline-block;
     margin: 15px 0px;
     font: bold 1.1em var(--padrao);
     border-radius: 10px;
@@ -153,21 +216,31 @@ section.descricao a:hover {
     text-decoration: underline;
 }
 
-section.somos{
-    text-align: center;
+section.somos {
+    display: flex;
+    flex-direction: column;   
+    align-items: center;      
+    justify-content: center;  
+    text-align: center;       
+    padding: 20px;
     border-bottom: 2px solid black;
-    padding-bottom: 20px;
 }
 
+section.somos img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;      
+}
+
+
 section.somos h2 {
-    font: bold 2em var(--titulo);
+    font: bold 1.6em var(--titulo);
 }
 
 section.somos p {
     font: normal 0.9em var(--padrao);
-    line-height: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
+    line-height: 1.5;
+    margin-top: 10px;
 }
 
 section.feedback {
@@ -176,15 +249,15 @@ section.feedback {
 
 section.feedback h2 {
     padding: 10px;
-    font: bold 1.8em var(--titulo);
+    font: bold 1.6em var(--titulo);
     text-align: center;
 }
 
-.box {
+section.feedback form div.box {
     background-color: var(--card);
-    padding: 10px;
+    padding: 15px;
     border: 2px solid black;
-    margin: 0px 19%;
+    margin: 0px 5%;
     border-radius: 10px;
 }
 
@@ -193,13 +266,17 @@ section.feedback h2 {
     margin-left: 10px;
 }
 
-section.feedback input {
-    padding: 3px;
+section.feedback input[type="text"] {
+    width: 100%;
+    max-width: 100%;
+    padding: 6px;
 }
 
-section.feedback textarea#idesc {
-    width: 270px;
-    height: 200px;
+section.feedback textarea#desc {
+    width: 100%;
+    max-width: 100%;
+    height: 160px;
+    padding: 6px;
 }
 
 section.feedback input.botao {

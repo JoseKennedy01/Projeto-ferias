@@ -1,0 +1,130 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --card: #F4F4F2;
+    --borda: #E0E0E0;
+    --sec-text: #3f3f3f;
+    --dest: #A8E000;
+    --terc-cor: #0D0D0D;
+
+    --padrao: "Montserrat", sans-serif;
+    --titulo: "Bebas Neue", sans-serif;
+}
+
+*, *::before, *::after {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--padrao);
+    background-image: linear-gradient(to bottom, var(--dest), var(--terc-cor));
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+main form.login-caixa {
+    background-color: white;
+    width: 100%;
+    max-width: 380px;
+    padding: clamp(24px, 4vw, 40px);
+    border: 2px solid black;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    text-align: center;
+}
+
+ main form.login-caixa h1 {
+    font-family: var(--titulo);
+    font-size: clamp(1.8em, 4vw, 2.2em);
+    color: var(--terc-cor);
+    line-height: 1;
+}
+
+main form.login-caixa div.linha-dest {
+    width: 50px;
+    height: 4px;
+    background-color: var(--dest);
+    border-radius: 4px;
+    margin: 4px auto 0;
+}
+
+main form.login-caixa p.subtitulo {
+    color: var(--sec-text);
+    font-size: 0.95em;
+    margin-bottom: 4px;
+}
+
+main form.login-caixa label {
+    text-align: left;
+    font-size: 0.85em;
+    font-weight: bold;
+    color: var(--terc-cor);
+    margin-top: 4px;
+}
+
+main form.login-caixa input {
+    padding: 10px 12px;
+    border: 2px solid var(--borda);
+    border-radius: 8px;
+    font-family: var(--padrao);
+    font-size: 0.95em;
+    background-color: var(--card);
+}
+
+main form.login-caixa input:focus {
+    outline: none;
+    border-color: var(--terc-cor);
+}
+
+main form.login-caixa button {
+    margin-top: 10px;
+    padding: 12px;
+    background-color: var(--dest);
+    color: var(--terc-cor);
+    border: 2px solid black;
+    border-radius: 8px;
+    font: bold 1.1em var(--padrao);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+main form.login-caixa button:hover {
+    background-color: var(--terc-cor);
+    color: var(--dest);
+}
+
+main form.login-caixa p.cadastro-msg {
+    font-size: 0.85em;
+    color: var(--sec-text);
+    margin-top: -4px;
+}
+
+main form.caixa-login p.cadastro-msg a {
+    color: var(--terc-cor);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+main form.caixa-login p.cadastro-msg a:hover {
+    text-decoration: underline;
+}
+
+main form.login-caixa a.voltar {
+    margin-top: 6px;
+    font-size: 0.85em;
+    color: var(--sec-text);
+    text-decoration: none;
+}
+
+main form.login-caixa a.voltar:hover {
+    text-decoration: underline;
+    color: var(--terc-cor);
+}

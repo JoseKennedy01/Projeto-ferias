@@ -1,0 +1,55 @@
+/* Responsividade */
+@media (max-width: 1024px) {
+    body {
+        margin-right: 30px;
+    }
+    
+    section.venda {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    div.frase{
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 1410px) {
+    div.frase{
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 900px) {
+    div.frase{
+        font-size: 0.7em;
+    }
+}
+
+@media (max-width: 660px) {
+    body {
+        margin-left: 20px;
+    }
+
+    div.frase {
+        max-width: 45%;
+        font-size: 0.5em;
+        
+    }
+
+    section.venda {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .produto {
+        width: 90%;
+    }
+
+    .filtro {
+        width: 90%;
+        margin: 10px auto;
+    }
+}
+

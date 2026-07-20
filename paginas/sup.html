@@ -3,9 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../estilos/sup.css">
+    <link rel="stylesheet" href="../estilos/media-sup.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
     <title>Suplementos</title>
 </head>
 <body>
-    
+    <header>
+        <span class="material-icons" id="carrinho">shopping_cart</span>
+    </header>
+    <main>
+        <section class="anuncio">
+            <img src="../imagens/anuncio.png" alt="">
+            <div class="frase">
+            <h2>Suplementos</h2>
+            <p>Suplementos garantem mais absorção e energia</p>
+            </div>
+        </section>
+        <section class="filtro">
+            <h2>Filtros de Busca</h2>
+            <div class="grupo">
+              <h3>Tipos</h3>
+              <label><input type="checkbox" name="tipo" value="whey">Whey</label>
+              <label><input type="checkbox" name="tipo" value="barra">Barra Proteica</label>
+              <label><input type="checkbox" name="tipo" value="creatina">Creatina</label>
+              <label><input type="checkbox" name="tipo" value="hipercalorico">Hipercalórico</label>
+            </div>
+          
+            <div class="grupo">
+              <h3>Peso</h3>
+              <label><input type="checkbox" name="peso" value="menor1kg">&lt;1kg</label>
+              <label><input type="checkbox" name="peso" value="1kg">1kg</label>
+              <label><input type="checkbox" name="peso" value="maior1kg">&gt;1kg</label>
+            </div>
+          
+            <div class="grupo">
+              <h3>Formas de Consumo</h3>
+              <label><input type="checkbox" name="forma" value="comprimidos">Comprimidos</label>
+              <label><input type="checkbox" name="forma" value="po">Em Pó</label>
+            </div>
+          </section>
+          
+        <section class="venda">
+            <div class="produto">
+                <img src="../imagens/diet.jpg" alt="Whey" width="200px">
+                <h3>Whey Diet</h3>
+                <p>80% de proteína pura, cada porção fornece 30g de proteína e promovendo o desenvolvimento muscular e dando energía. - 1kg</p>
+                <span>R$ 165,00</span><br>
+                <button onclick="adicionarCarrinho('Whey Diet 1Kg',165.00)">Adicionar</button>
+            </div>
+            <div class="produto">
+                <img src="../imagens/avela.png" alt="Whey" width="200px">
+                <h3>Creme de Avelã com Whey</h3>
+                <p>Alternativa saudável e funcional aos tradicionais cremes e doces - 250G</p>
+                <span>R$ 40,90</span><br>
+                <button onclick="adicionarCarrinho('Creme de Avelã com Whey 250G',40.90)">Adicionar</button>
+            </div>
+            <div class="produto">
+                <img src="../imagens/pro.png" alt="Whey" width="200px">
+                <h3>Whey Pro - Max Titanium</h3>
+                <p>Suplemento proteico focado em custo-benefício, ideal para iniciantes 1Kg</p>
+                <span>R$ 90.99</span><br>
+                <button onclick="adicionarCarrinho('Whey Pro - Max Titanium 1kg',90.99)">Adicionar</button>
+            </div>
+            <div class="produto">
+                <img src="../imagens/super.png" alt="Whey" width="200px">
+                <h3>Whey Protein Super Max Titanium Morango Refil</h3>
+                <p>Suplemento alimentar que combina carboidratos e proteínas, desenvolvido para atletas - 900g</p>
+                <span>R$ 69,99</span><br>
+                <button onclick="adicionarCarrinho('Whey Protein Super 900G',69.99)">Adicionar</button>
+            </div>
+            <div class="produto">
+                <img src="../imagens/conc.png" alt="Whey" width="200px">
+                <h3>Whey Protein Concentrado - Dux Nutrition</h3>
+                <p>Suplemento proteico de alta qualidade desenvolvido com matéria-prima premium importada - 900G</p>
+                <span>R$ 200,00</span><br>
+                <button onclick="adicionarCarrinho('Whey Protein Concentrado 900G',200.00)">Adicionar</button>
+            </div>
+            <div class="produto">
+                <img src="../imagens/barra-nutratra.png" alt="Whey" width="200px">
+                <h3>Barra De Proteína Morango - Nutrata</h3>
+                <p>Alimento premium que une a qualidade nutricional da Nutrata à cremosidade do autêntico doce de leite argentino da Havanna - 40g</p>
+                <span>R$ 11,99</span><br>
+                <button onclick="adicionarCarrinho('Whey Protein Performance 40G',11.99)">Adicionar</button>
+            </div>
+            <div class="produto">
+                <img src="../imagens/barra-creme.jpg" alt="Whey" width="200px">
+                <h3>Snack Proteico</h3>
+                <p>Doces funcional zero ou com baixa adição de açúcar, desenvolvidos para dietas de emagrecimento ou ganho de massa, Creme de Avelã - 35G</p>
+                <span>R$ 9,49</span><br>
+                <button onclick="adicionarCarrinho('Whey Protein Performance 2kg',9.49)">Adicionar</button>
+            </div>
+            <div class="produto">
+                <img src="../imagens/bold.jpg" alt="Whey" width="200px">
+                <h3>Barra Bold Bombom Crocante</h3>
+                <p>Snack proteico saudável projetado para substituir doces tradicionais sem quebrar a dieta - 60G</p>
+                <span>R$ 19,99</span><br>
+                <button onclick="adicionarCarrinho('Bold Bombom Crocante 60G',19.99)">Adicionar</button>
+            </div>
+            <div class="produto">
+                <img src="../imagens/pacoca.webp" alt="Whey" width="200px">
+                <h3>Barra Bold Tube Paçoca</h3>
+                <p>Snack funcional em formato de tubo com uma casquinha de wafer crocante, recheio cremoso de amendoim e cobertura de chocolate ao leite 30G</p>
+                <span>R$ 7.99</span><br>
+                <button onclick="adicionarCarrinho('Barra Bold Tube Paçoca 30g',7.99)">Adicionar</button>
+            </div>
+            <div class="produto">
+                <img src="../imagens/best.jpg" alt="Whey" width="200px">
+                <h3>Barra de Proteína Best Whey</h3>
+                <p>Barra de proteína desenvolvida para quem busca um snack prático, saudável e saboroso para o dia a dia - 50g</p>
+                <span>R$ 5,99</span><br>
+                <button onclick="adicionarCarrinho('Barra de Proteína Best Whey 50G',5.99)">Adicionar</button>
+            </div>
+            <div class="produto">
+                <img src="../imagens/conc.png" alt="Whey" width="200px">
+                <h3>Whey Protein Concentrado - Dux Nutrition</h3>
+                <p>Suplemento proteico de alta qualidade desenvolvido com matéria-prima premium importada - 900G</p>
+                <span>R$ 200,00</span><br>
+                <button onclick="adicionarCarrinho('Whey Protein Concentrado 900G',200.00)">Adicionar</button>
+            </div>
+            <div class="produto">
+                <img src="../imagens/barra-nutratra.png" alt="Whey" width="200px">
+                <h3>Barra De Proteína Morango - Nutrata</h3>
+                <p>Alimento premium que une a qualidade nutricional da Nutrata à cremosidade do autêntico doce de leite argentino da Havanna - 40g</p>
+                <span>R$ 11,99</span><br>
+                <button onclick="adicionarCarrinho('Whey Protein Performance 40G',11.99)">Adicionar</button>
+            </div>
+            <div class="produto">
+                <img src="../imagens/diet.jpg" alt="Whey" width="200px">
+                <h3>Whey Diet</h3>
+                <p>80% de proteína pura, cada porção fornece 30g de proteína e promovendo o desenvolvimento muscular e dando energía. - 1kg</p>
+                <span>R$ 165,00</span><br>
+                <button onclick="adicionarCarrinho('Whey Diet 1Kg',165.00)">Adicionar</button>
+            </div>
+            <div class="produto">
+                <img src="../imagens/avela.png" alt="Whey" width="200px">
+                <h3>Creme de Avelã com Whey</h3>
+                <p>Alternativa saudável e funcional aos tradicionais cremes e doces - 250G</p>
+                <span>R$ 40,90</span><br>
+                <button onclick="adicionarCarrinho('Creme de Avelã com Whey 250G',40.90)">Adicionar</button>
+            </div>
+            <div class="produto">
+                <img src="../imagens/pro.png" alt="Whey" width="200px">
+                <h3>Whey Pro - Max Titanium</h3>
+                <p>Suplemento proteico focado em custo-benefício, ideal para iniciantes 1Kg</p>
+                <span>R$ 90.99</span><br>
+                <button onclick="adicionarCarrinho('Whey Pro - Max Titanium 1kg',90.99)">Adicionar</button>
+            </div>
+            <div class="produto">
+                <img src="../imagens/super.png" alt="Whey" width="200px">
+                <h3>Whey Protein Super Max Titanium Morango Refil</h3>
+                <p>Suplemento alimentar que combina carboidratos e proteínas, desenvolvido para atletas - 900g</p>
+                <span>R$ 69,99</span><br>
+                <button onclick="adicionarCarrinho('Whey Protein Super 900G',69.99)">Adicionar</button>
+            </div>
+            <div class="produto">
+                <img src="../imagens/conc.png" alt="Whey" width="200px">
+                <h3>Whey Protein Concentrado - Dux Nutrition</h3>
+                <p>Suplemento proteico de alta qualidade desenvolvido com matéria-prima premium importada - 900G</p>
+                <span>R$ 200,00</span><br>
+                <button onclick="adicionarCarrinho('Whey Protein Concentrado 900G',200.00)">Adicionar</button>
+            </div>
+            <div class="produto">
+                <img src="../imagens/barra-nutratra.png" alt="Whey" width="200px">
+                <h3>Barra De Proteína Morango - Nutrata</h3>
+                <p>Alimento premium que une a qualidade nutricional da Nutrata à cremosidade do autêntico doce de leite argentino da Havanna - 40g</p>
+                <span>R$ 11,99</span><br>
+                <button onclick="adicionarCarrinho('Whey Protein Performance 40G',11.99)">Adicionar</button>
+            </div>
+            <div class="produto">
+                <img src="../imagens/barra-creme.jpg" alt="Whey" width="200px">
+                <h3>Snack Proteico</h3>
+                <p>Doces funcional zero ou com baixa adição de açúcar, desenvolvidos para dietas de emagrecimento ou ganho de massa, Creme de Avelã - 35G</p>
+                <span>R$ 9,49</span><br>
+                <button onclick="adicionarCarrinho('Whey Protein Performance 2kg',9.49)">Adicionar</button>
+            </div>
+            <div class="produto">
+                <img src="../imagens/bold.jpg" alt="Whey" width="200px">
+                <h3>Barra Bold Bombom Crocante</h3>
+                <p>Snack proteico saudável projetado para substituir doces tradicionais sem quebrar a dieta - 60G</p>
+                <span>R$ 19,99</span><br>
+                <button onclick="adicionarCarrinho('Bold Bombom Crocante 60G',19.99)">Adicionar</button>
+            </div>
+            <div class="produto">
+                <img src="../imagens/pacoca.webp" alt="Whey" width="200px">
+                <h3>Barra Bold Tube Paçoca</h3>
+                <p>Snack funcional em formato de tubo com uma casquinha de wafer crocante, recheio cremoso de amendoim e cobertura de chocolate ao leite 30G</p>
+                <span>R$ 7.99</span><br>
+                <button onclick="adicionarCarrinho('Barra Bold Tube Paçoca 30g',7.99)">Adicionar</button>
+            </div>
+            <div class="produto">
+                <img src="../imagens/best.jpg" alt="Whey" width="200px">
+                <h3>Barra de Proteína Best Whey</h3>
+                <p>Barra de proteína desenvolvida para quem busca um snack prático, saudável e saboroso para o dia a dia - 50g</p>
+                <span>R$ 5,99</span><br>
+                <button onclick="adicionarCarrinho('Barra de Proteína Best Whey 50G',5.99)">Adicionar</button>
+            </div>
+            <div class="produto">
+                <img src="../imagens/conc.png" alt="Whey" width="200px">
+                <h3>Whey Protein Concentrado - Dux Nutrition</h3>
+                <p>Suplemento proteico de alta qualidade desenvolvido com matéria-prima premium importada - 900G</p>
+                <span>R$ 200,00</span><br>
+                <button onclick="adicionarCarrinho('Whey Protein Concentrado 900G',200.00)">Adicionar</button>
+            </div>
+            <div class="produto">
+                <img src="../imagens/barra-nutratra.png" alt="Whey" width="200px">
+                <h3>Barra De Proteína Morango - Nutrata</h3>
+                <p>Alimento premium que une a qualidade nutricional da Nutrata à cremosidade do autêntico doce de leite argentino da Havanna - 40g</p>
+                <span>R$ 11,99</span><br>
+                <button onclick="adicionarCarrinho('Whey Protein Performance 40G',11.99)">Adicionar</button>
+            </div>
+        </section>
+    </main>
 </body>
 </html>

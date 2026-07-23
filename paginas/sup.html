@@ -7,12 +7,38 @@
     <link rel="stylesheet" href="../estilos/media-sup.css">
     <link rel="shortcut icon" href="../imagens/favicon.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link rel="stylesheet" href="../estilos/principal.css">
+    <link rel="stylesheet" href="../estilos/media-queries.css">
     <title>Suplementos</title>
 </head>
 <body>
     <header>
+        <span id="burguer" class="material-icons" onclick="clickMenu()">menu</span>
+    
+        <h1>Fitness <br> Stok</h1>
+    
+        <a href="../paginas/login.html" class="login-link">
+            <span class="material-icons">account_circle</span>
+            <span class="login-texto">Login</span>
+        </a>
+    
+        <label for="busca"></label>
+        <div class="busca">
+            <input type="search" name="busca" id="busca" placeholder="O que você deseja procurar?" minlength="5" maxlength="50">
+            <span class="material-icons" id="busca-icone" onclick="acionarBusca()">search</span>
+        </div>
+    
         <span class="material-icons" id="carrinho">shopping_cart</span>
     </header>
+    
+    <nav>
+        <a href="../paginas/roupas.html">Vestimentas</a>
+        <a href="../paginas/treino.html">Treinos</a>
+        <a href="../paginas/sup.html">Suplementos</a>
+        <a href="../paginas/acessorios.html">Acessórios</a>
+        <a href="../paginas/login.html" class="nav-login">Login</a>
+    </nav>
+    
     <main>
         <section class="anuncio">
             <img src="../imagens/anuncio.png" alt="">
@@ -216,5 +242,6 @@
             </div>
         </section>
     </main>
+<script src="../scripts/principal.js"></script>
 </body>
 </html>

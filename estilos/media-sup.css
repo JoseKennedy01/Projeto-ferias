@@ -1,7 +1,7 @@
 /* Responsividade */
 @media (max-width: 1024px) {
     body {
-        margin-right: 30px;
+        margin: 0;
     }
     
     section.venda {
@@ -28,13 +28,19 @@
 
 @media (max-width: 660px) {
     body {
-        margin-left: 20px;
+        margin: 0;
     }
 
     div.frase {
-        max-width: 45%;
-        font-size: 0.5em;
-        
+        max-width: 100%;
+        font-size: 0.8em;
+        left: 21%;
+        transform: translate(-50%, -50%);
+        text-align: left;
+    }
+
+    div.frase p {
+        display: none;
     }
 
     section.venda {
@@ -52,4 +58,3 @@
         margin: 10px auto;
     }
 }
-

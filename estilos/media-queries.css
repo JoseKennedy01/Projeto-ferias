@@ -8,8 +8,8 @@
 
     header {
         display: grid;
-        grid-template-columns: 1fr minmax(180px, 420px) 1fr max-content max-content;
-        grid-template-areas: "title busca . login carrinho";
+        grid-template-columns: 1fr minmax(180px, 420px) 1fr max-content max-content max-content;
+        grid-template-areas: "title busca . login tema carrinho";
         align-items: center;
         column-gap: 16px;
         padding: 12px 25px;
@@ -36,6 +36,10 @@
 
     header a.login-link span.login-texto {
         display: inline;
+    }
+
+    button.tema-toggle {
+        justify-self: center;
     }
 
     nav {
@@ -71,8 +75,8 @@
 @media screen and (min-width: 1024px) {
 
     header {
-        grid-template-columns: 1fr minmax(260px, 620px) 1fr max-content max-content;
-        grid-template-areas: "title busca . login carrinho";
+        grid-template-columns: 1fr minmax(260px, 620px) 1fr max-content max-content max-content;
+        grid-template-areas: "title busca . login tema carrinho";
         column-gap: 24px;
     }
 

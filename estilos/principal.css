@@ -11,6 +11,21 @@
     /*Fontes*/
     --padrao: "Montserrat", sans-serif;
     --titulo: "Bebas Neue", sans-serif;
+
+    /* Modo claro (padrão) */
+    --fundo: #ffffff;
+    --texto: #1a1a1a;
+    --texto-suave: var(--sec-text);
+    --cartao: var(--card);
+    --cartao-borda: #000000;
+}
+
+:root[data-tema="escuro"] {
+    --fundo: #232323;
+    --texto: #f2f2f2;
+    --texto-suave: #b8b8b8;
+    --cartao: #1e1e1e;
+    --cartao-borda: #3a3a3a;
 }
 
 *, *::before, *::after {
@@ -27,6 +42,9 @@ img {
 
 body {
     overflow-x: hidden;
+    background-color: var(--fundo);
+    color: var(--texto);
+    transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 header {
@@ -39,10 +57,10 @@ header {
     top: 0;
     z-index: 30;
     display: grid;
-    grid-template-columns: 44px 1fr 44px;
+    grid-template-columns: 44px 1fr 40px 44px;
     grid-template-areas:
-        "burguer title  carrinho"
-        "busca   busca  busca";
+        "burguer title  tema carrinho"
+        "busca   busca  busca busca";
     align-items: center;
     gap: 10px 8px;
 }
@@ -65,6 +83,25 @@ span#burguer {
     line-height: 1;
     color: white;
     cursor: pointer;
+}
+
+/* Botão de tema claro/escuro */
+button.tema-toggle {
+    grid-area: tema;
+    justify-self: center;
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+}
+
+button.tema-toggle .material-icons {
+    font-size: 1.6em;
+    text-shadow: none;
 }
 
 header div.busca {
@@ -182,13 +219,13 @@ nav a:hover {
 section.descricao {
     text-align: center;
     margin-top: 20px;
-    color: var(--sec-text);
-    border-bottom: 2px solid black;
+    color: var(--texto-suave);
+    border-bottom: 2px solid var(--cartao-borda);
     padding: 15px 10px;
 }
 
 section.descricao h2 {
-    color: var(--terc-cor);
+    color: var(--texto);
     font: bolder clamp(1.6em, 1.1em + 2vw, 3em) var(--titulo);
 }
 
@@ -223,7 +260,8 @@ section.somos {
     justify-content: center;  
     text-align: center;       
     padding: 20px;
-    border-bottom: 2px solid black;
+    color: var(--texto);
+    border-bottom: 2px solid var(--cartao-borda);
 }
 
 section.somos img {
@@ -241,6 +279,17 @@ section.somos p {
     font: normal 0.9em var(--padrao);
     line-height: 1.5;
     margin-top: 10px;
+    color: var(--texto-suave);
+}
+
+section.somos a {
+    text-decoration: none;
+    font-weight: bolder;
+    color: #8ebd03;
+}
+
+section.somos a:hover {
+    text-decoration: underline;
 }
 
 section.feedback {
@@ -251,12 +300,17 @@ section.feedback h2 {
     padding: 10px;
     font: bold 1.6em var(--titulo);
     text-align: center;
+    color: var(--texto);
+}
+
+section.feedback label {
+    color: var(--texto);
 }
 
 section.feedback form div.box {
-    background-color: var(--card);
+    background-color: var(--cartao);
     padding: 15px;
-    border: 2px solid black;
+    border: 2px solid var(--cartao-borda);
     margin: 0px 5%;
     border-radius: 10px;
 }
@@ -270,6 +324,10 @@ section.feedback input[type="text"] {
     width: 100%;
     max-width: 100%;
     padding: 6px;
+    background-color: var(--fundo);
+    color: var(--texto);
+    border: 1px solid var(--cartao-borda);
+    border-radius: 4px;
 }
 
 section.feedback textarea#desc {
@@ -277,6 +335,10 @@ section.feedback textarea#desc {
     max-width: 100%;
     height: 160px;
     padding: 6px;
+    background-color: var(--fundo);
+    color: var(--texto);
+    border: 1px solid var(--cartao-borda);
+    border-radius: 4px;
 }
 
 section.feedback input.botao {

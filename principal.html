@@ -8,12 +8,19 @@
     <link rel="stylesheet" href="estilos/media-queries.css">
     <link rel="shortcut icon" href="imagens/favicon.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <script src="scripts/tema.js"></script>
 </head>
 <body>
     <header>
         <span id="burguer" class="material-icons" onclick="clickMenu()">menu</span>
 
         <h1>Fitness <br> Stok</h1>
+
+        <button id="tema-toggle" class="tema-toggle" onclick="alternarTema()" aria-label="Alternar tema claro/escuro" title="Alternar tema">
+            <span class="material-icons">dark_mode</span>
+        </button>
+
+        <span class="material-icons" id="carrinho">shopping_cart</span>
 
         <a href="paginas/login.html" class="login-link">
             <span class="material-icons">account_circle</span>
@@ -25,8 +32,6 @@
             <input type="search" name="busca" id="busca" placeholder="O que você deseja procurar?" minlength="5" maxlength="50">
             <span class="material-icons" id="busca-icone" onclick="acionarBusca()">search</span>
         </div>
-
-        <span class="material-icons" id="carrinho">shopping_cart</span>
     </header>
 
     <nav>
@@ -49,7 +54,7 @@
 
             <p>QUEM SOMOS</p>
             <h2>FITNESS STOK</h2>
-            <p>A Fitness Stok é uma loja online voltada pra quem leva o treino a sério. Reunimos vestimentas, acessórios e suplementos selecionados com qualidade de academia e estética <a href="#">streetwear</a>, além de conteúdo de treinos pra quem quer evoluir de verdade, tudo em um só lugar, sem enrolação.</p>
+            <p>A Fitness Stok é uma loja online voltada pra quem leva o treino a sério. Reunimos vestimentas, acessórios e suplementos selecionados com qualidade de academia e estética <a href="https://www.hoshwear.com/blog/o-que-significa-streetwear?">streetwear</a>, além de conteúdo de treinos pra quem quer evoluir de verdade, tudo em um só lugar, sem enrolação.</p>
         </section>
 
         <section class="feedback">

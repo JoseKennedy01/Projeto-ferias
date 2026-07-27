@@ -21,6 +21,11 @@
         margin: 0px 120px 0px 20px;
     }
 
+    header a#titulo {
+        width: 30%;
+        margin-left: 70%;
+    }
+
     header div.busca {
         grid-area: busca;
         justify-self: center; /* mantém a busca centralizada */

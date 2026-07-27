@@ -65,11 +65,22 @@ header {
     gap: 10px 8px;
 }
 
-header h1 {
+header div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header div.titulo h1 {
     grid-area: title;
     font-size: clamp(1.4rem, 1rem + 2vw, 2.6rem);
     line-height: 0.9;
     text-align: center;
+}
+
+header div.titulo a#titulo {
+    text-decoration: none;
+    color: white;
 }
 
 header label {

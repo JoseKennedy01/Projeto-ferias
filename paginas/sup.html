@@ -15,7 +15,11 @@
     <header>
         <span id="burguer" class="material-icons" onclick="clickMenu()">menu</span>
     
-        <a href="../principal.html" id="titulo"><h1>Fitness <br> Stok</h1></a>
+        <div class="titulo"><a href="../principal.html" id="titulo"><h1>Fitness <br> Stok</h1></a></div>
+
+        <button id="tema-toggle" class="tema-toggle" onclick="alternarTema()" aria-label="Alternar tema claro/escuro" title="Alternar tema">
+            <span class="material-icons">dark_mode</span>
+        </button>
     
         <a href="../paginas/login.html" class="login-link">
             <span class="material-icons">account_circle</span>
@@ -28,7 +32,11 @@
             <span class="material-icons" id="busca-icone" onclick="acionarBusca()">search</span>
         </div>
     
-        <span class="material-icons" id="carrinho">shopping_cart</span>
+        <span class="material-icons" id="carrinho">
+            shopping_cart
+        </span>
+        <span id="carrinho-contador">0</span>
+          
     </header>
     
     <nav>
@@ -233,9 +241,18 @@
                 <span>R$ 11,99</span><br>
                 <button onclick="adicionarCarrinho('Whey Protein Performance 40G',11.99)">Adicionar</button>
             </div>
+            <div class="produto" data-tipo="barra" data-peso="menor1kg">
+                <img src="../imagens/barra-nutratra.png" alt="Whey" width="200px">
+                <h3>Barra De Proteína Morango - Nutrata</h3>
+                <p>Alimento premium que une a qualidade nutricional da Nutrata à cremosidade do autêntico doce de leite argentino da Havanna - 40g</p>
+                <span>R$ 11,99</span><br>
+                <button onclick="adicionarCarrinho('Whey Protein Performance 40G',11.99)">Adicionar</button>
+            </div>
         </section>
     </main>
 <script src="../scripts/principal.js"></script>
 <script src="../scripts/sup.js"></script>
+<script src="../scripts/carrinho.js"></script>
+<script src="../scripts/tema.js"></script>
 </body>
 </html>

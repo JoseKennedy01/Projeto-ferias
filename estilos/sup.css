@@ -156,3 +156,7 @@ section.venda {
     transition: background .18s, transform .15s;
     width: 100%;
 }
+
+.produto h3 {
+    margin-top: 5px;
+}

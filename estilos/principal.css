@@ -180,13 +180,28 @@ header span#carrinho {
     text-shadow: none;
     border: 2px solid black;
     border-radius: 50%;
-    display: flex;
+    display: inline-block;
     align-items: center;
     justify-content: center;
-    font-size: clamp(1.3rem, 1.1rem + 0.6vw, 1.7rem);
-    padding: clamp(7px, 0.5vw + 5px, 10px);
+    font-size: 1.4em;
+    padding: 7px;
     flex-shrink: 0;
     cursor: pointer;
+    position: relative;
+}
+
+#carrinho-contador {
+    position: absolute;
+    top: 10px;
+    right: 7px;
+    background-color: black;
+    color: white;
+    font-size: 0.8em;
+    font-weight: normal;
+    border-radius: 50%;
+    padding: 4px 6px;
+    line-height: 1;
+    text-shadow: none;
 }
 
 nav {

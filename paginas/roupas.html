@@ -3,10 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vestimentas</title>
+    <link rel="stylesheet" href="../estilos/sup.css">
+    <link rel="stylesheet" href="../estilos/media-sup.css">
     <link rel="shortcut icon" href="../imagens/favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link rel="stylesheet" href="../estilos/principal.css">
+    <link rel="stylesheet" href="../estilos/media-queries.css">
+    <title>Suplementos</title>
 </head>
 <body>
+    <header>
+        <span id="burguer" class="material-icons" onclick="clickMenu()">menu</span>
     
+        <div class="titulo"><a href="../principal.html" id="titulo"><h1>Fitness <br> Stok</h1></a></div>
+
+        <button id="tema-toggle" class="tema-toggle" onclick="alternarTema()" aria-label="Alternar tema claro/escuro" title="Alternar tema">
+            <span class="material-icons">dark_mode</span>
+        </button>
+    
+        <a href="../paginas/login.html" class="login-link">
+            <span class="material-icons">account_circle</span>
+            <span class="login-texto">Login</span>
+        </a>
+    
+        <label for="busca"></label>
+        <div class="busca">
+            <input type="search" name="busca" id="busca" placeholder="O que você deseja procurar?" minlength="5" maxlength="50">
+            <span class="material-icons" id="busca-icone" onclick="acionarBusca()">search</span>
+        </div>
+    
+        <span class="material-icons" id="carrinho">
+            shopping_cart
+        </span>
+        <span id="carrinho-contador">0</span>
+          
+    </header>
+    
+    <nav>
+        <a href="../paginas/roupas.html">Vestimentas</a>
+        <a href="../paginas/treino.html">Treinos</a>
+        <a href="../paginas/sup.html">Suplementos</a>
+        <a href="../paginas/acessorios.html">Acessórios</a>
+        <a href="../paginas/login.html" class="nav-login">Login</a>
+    </nav>
+    
+    <main>
+        <section class="anuncio">
+            <img src="../imagens/httpswww.google.combanner.png" alt="">
+            <div class="frase">
+            <h2>Vestimentas</h2>
+            <p>Roupas que garantem conforto e elasticidade</p>
+            </div>
+        </section>
+        <section class="filtro">
+            <h2>Filtros de Busca</h2>
+            <div class="grupo">
+              <h3>Tipos</h3>
+              <label><input type="checkbox" name="tipo" value="camisas">Camisas</label>
+              <label><input type="checkbox" name="tipo" value="bermudas">Bermudas</label>
+              <label><input type="checkbox" name="tipo" value="moletom">Moletom</label>
+              <label><input type="checkbox" name="tipo" value="tenis">Tênis</label>
+              <label><input type="checkbox" name="tipo" value="calcas">Calças</label>
+            </div>
+          
+            <div class="grupo">
+              <h3>Cores</h3>
+              <label><input type="checkbox" name="cor" value="branco">Branco</label>
+              <label><input type="checkbox" name="cor" value="preto">Preto</label>
+              <label><input type="checkbox" name="cor" value="azul">Azul</label>
+              <label><input type="checkbox" name="cor" value="rosa">Rosa</label>
+              <label><input type="checkbox" name="cor" value="vermelho">Vermelho</label>
+              <label><input type="checkbox" name="cor" value="verde">Verde</label>
+            </div>
+          
+            <div class="grupo">
+              <h3>Formas de Consumo</h3>
+              <label><input type="checkbox" name="forma" value="masculina">Masculina</label>
+              <label><input type="checkbox" name="forma" value="feminina">Feminina</label>
+            </div>
+          </section>
+          
+        <section class="venda">
+            <div class="produto" data-tipo="camisas" data-cor="azul" data-forma="masculina">
+                <img src="../imagens/camisadry.webp" alt="camisa" width="200px">
+                <h3>Camisa Dry - Sportswear</h3>
+                <p>Em nossos produtos utilizamos o tecido Dry, leve e ótimo para prática de esportes e usos casuais, super resistente, ótimo caimento no corpo e muito confortável deixando sua pele respirar bem - Azul</p>
+                <span>R$ 49,99</span><br>
+                <button onclick="adicionarCarrinho('Camisa Dry - Sportswear Azul',49.99)">Adicionar</button>
+            </div>
+            <div class="produto" data-tipo="camisas" data-cor="preto" data-forma="feminina">
+                <img src="../imagens/camisa-raglan.webp" alt="Whey" width="200px">
+                <h3>Camisa Dry - Raglan</h3>
+                <p style="margin-top: 25px;">Camiseta com modelagem Raglan, com costuras reforçadas, revisadas e de altíssima qualidade, conferindo durabilidade e excelente acabamento à peça - Preta</p>
+                <span>R$ 34,90</span><br>
+                <button onclick="adicionarCarrinho('Camisa Dry - Raglan Preta',34.90)">Adicionar</button>
+            </div>
+            <div class="produto" data-tipo="camisas" data-cor="preto" data-forma="masculina">
+                <img src="../imagens/mangalongarash.webp" alt="Whey" width="200px">
+                <h3>Camisa Manga Longa - RashGuard</h3>
+                <p>Desenvolvida especialmente para prática de artes marcias, liberdade total de movimentos, 100% sublimada, Composição 85% Poliester, 15% Elastano - Preta</p>
+                <span>R$ 179.90</span><br>
+                <button onclick="adicionarCarrinho('Camisa Manga Longa - RashGuard Preta',179.90)">Adicionar</button>
+            </div>
+            <div class="produto" data-tipo="camisas" data-cor="rosa" data-forma="feminina">
+                <img src="../imagens/camisacruzeiro.webp" alt="camisa feminina" width="200px">
+                <h3>Camisa Cruzeiro Copas - Braziline</h3>
+                <p style="margin: auto;">Peça casual de poliéster leve e respirável, ideal para torcer ou usar no dia a dia - Rosa</p>
+                <span>R$ 109,90</span><br>
+                <button onclick="adicionarCarrinho('Camisa Cruzeiro Copas - Braziline Rosa',109.90)">Adicionar</button>
+            </div>
+            <div class="produto" data-tipo="camisas" data-cor="preto" data-forma="feminina">
+                <img src="../imagens/camisafla.webp" alt="camisa flamengo" width="200px">
+                <h3>Camisa Flamengo - Building</h3>
+                <p>Produzida com tecido de poliéster, leve, com caimento solto, gola careca personalizada e o modelo exibe o brasão do rubro-negro na cor dourada - Preta</p>
+                <span>R$ 99,99</span><br>
+                <button onclick="adicionarCarrinho('Camisa Flamengo - Building Preta',99.99)">Adicionar</button>
+            </div>
+            <div class="produto" data-tipo="camisas" data-cor="vermelho" data-forma="masculina">
+                <img src="../imagens/camisaport.webp" alt="Whey" width="200px">
+                <h3>Camisa de Portugal - Rockz Club</h3>
+                <p style="margin: auto;">Peça casual e moderna em tecido Dryfit com proteção UV 50+ permanente. É feita com poliéster e elastano hipoalergênico - Vermelho</p>
+                <span>R$ 89,90</span><br>
+                <button onclick="adicionarCarrinho('Camisa de Portugal - Rockz Club Vermelho',89.90)">Adicionar</button>
+            </div>
+            <div class="produto" data-tipo="bermudas" data-cor="preto" data-forma="masculina">
+                <img src="../imagens/bermudafla.webp" alt="bermuda flamengo" width="200px">
+                <h3>Bermuda Flamengo - Wick</h3>
+                <p>Peça de vestuário esportivo masculina feita em poliéster com tecnologia Super Dry, ideal para treinos ou uso casual - Preto</p>
+                <span>R$ 90,99</span><br>
+                <button onclick="adicionarCarrinho('Bermuda Flamengo - Wick Preto',90.99)">Adicionar</button>
+            </div>
+            <div class="produto" data-tipo="bermudas" data-cor="azul" data-forma="masculina">
+                <img src="../imagens/bermudapsg.webp" alt="bermudapsg" width="200px">
+                <h3>Bermuda PSG - Golf</h3>
+                <p>Peça esportiva licenciada do PSG feita em tecido Double Dry 100% poliéster, oferece leveza, toque suave, alta capacidade de respiração para absorção do suor - Azul</p>
+                <span>R$ 80,99</span><br>
+                <button onclick="adicionarCarrinho('Bermuda PSG - Golf Azul',80.99)">Adicionar</button>
+            </div>
+            <div class="produto" data-tipo="bermudas" data-cor="branco" data-forma="masculina">
+                <img src="../imagens/bermmma.jpg" alt="bermuda mma" width="200px">
+                <h3>Bermuda MMA</h3>
+                <p style="margin: auto;">Peça de roupa leve, resistente e flexível, projetada para garantir total mobilidade Branco</p>
+                <span>R$ 30,50</span><br>
+                <button onclick="adicionarCarrinho('Bermuda MMA Branco',30.50)">Adicionar</button>
+            </div>
+            <div class="produto" data-tipo="bermudas" data-cor="branco" data-forma="feminina">
+                <img src="../imagens/bermfem.png" alt="bermuda feminina" width="200px">
+                <h3>Bermuda Feminina - Rage</h3>
+                <p>Possui foco em performance, elasticidade e alta exigência em treinos funcionais e conforto térmico - Branco</p>
+                <span>R$ 129,90</span><br>
+                <button onclick="adicionarCarrinho('Bermuda Feminina - Rage Branco',129.90)">Adicionar</button>
+            </div>
+            <div class="produto" data-tipo="calcas" data-cor="preto" data-forma="feminina">
+                <img src="../imagens/calcaadidas.jpg" alt="calça adidas" width="200px">
+                <h3>Calça Treino - Adidas</h3>
+                <p>Destaca tecnologias antissuor, alta elasticidade e materiais sustentáveis, além de possuir <strong>Tecnologia AEROREADY / Climacool</strong> - Preto</p>
+                <span>R$ 129,99</span><br>
+                <button onclick="adicionarCarrinho('Calça Treino - Adidas Preto',129.99)">Adicionar</button>
+            </div>
+            <div class="produto" data-tipo="calcas" data-cor="azul" data-forma="feminina">
+                <img src="../imagens/calcaleg.jpg" alt="Whey" width="200px">
+                <h3>Calça Legging sem Costura</h3>
+                <p>Descubra a combinação perfeita de conforto e estilo com a Calça Legging Sem Costura, ideal para acompanhar você no dia a dia e na academia - Azul</p>
+                <span>R$ 69,00</span><br>
+                <button onclick="adicionarCarrinho('Calça Legging sem Costura Azul',69.00)">Adicionar</button>
+            </div>
+            <div class="produto" data-tipo="tenis" data-cor="preto" data-forma="masculina">
+                <img src="../imagens/tenismizuno.webp" alt="Whey" width="200px">
+                <h3>Tênis Wave Creation - Mizuno</h3>
+                <p>O Mizuno Wave Creation Masculino reúne desempenho, conforto e visual esportivo para acompanhar a rotina com mais segurança e praticidade - Preto</p>
+                <span>R$ 94,99</span><br>
+                <button onclick="adicionarCarrinho('Tênis Wave Creation - Mizuno Preto',94.99)">Adicionar</button>
+            </div>
+            <div class="produto" data-tipo="tenis" data-cor="preto" data-forma="masculina">
+                <img src="../imagens/tenisfila.webp" alt="Whey" width="200px">
+                <h3>Tênis Heating - Fila</h3>
+                <p style="margin: auto;">O Tênis Fila Heating Masculino é a escolha ideal para quem busca conforto e versatilidade em atividades diversas. Projetado para corrida, caminhada e uso casual - Preto</p>
+                <span>R$ 133,20</span><br>
+                <button onclick="adicionarCarrinho('Tênis Heating - Fila Preto',133.20)">Adicionar</button>
+            </div>
+            <div class="produto" data-tipo="tenis" data-cor="branco" data-forma="masculina">
+                <img src="../imagens/tenisolym.jpg" alt="Whey" width="200px">
+                <h3>Tênis Stroke - Olympikus</h3>
+                <p>A linha Olympikus até hoje é referência em tecnologia e surpreende a cada geração. O Olympikus Stroke representa muito bem quando o assunto é estabilidade, conforto e ajuste - Branco</p>
+                <span>R$ 140,00</span><br>
+                <button onclick="adicionarCarrinho('Tênis Stroke - Olympikus Branco',140.00)">Adicionar</button>
+            </div>
+            <div class="produto" data-tipo="tenis" data-cor="rosa" data-forma="feminina">
+                <img src="../imagens/tenisfem.jpg" alt="Whey" width="200px">
+                <h3>Tênis Space 2 - Mizuno</h3>
+                <p>A Mizuno traz a você a atualização do seu modelo Space, em sua nova versão de número dois. Ele chegou com objetivo de aumentar os benefícios da versão anterior  - Rosa</p>
+                <span>R$ 150,00</span><br>
+                <button onclick="adicionarCarrinho('Tênis Space 2 - Mizuno Rosa',150.00)">Adicionar</button>
+            </div>
+            <div class="produto" data-tipo="tenis" data-cor="rosa" data-forma="feminina">
+                <img src="../imagens/tenisbor.jpg" alt="tenis boreal" width="200px">
+                <h3>Tênis Boreal - Olympikus</h3>
+                <p>Este tênis Feminino Olympikus é muito confortável e anatômico. O cabedal é em Material têxtil, o fechamento Cadarço e o forro Tecido Tear Jacquard multicolor - Rosa</p>
+                <span>R$ 86,00</span><br>
+                <button onclick="adicionarCarrinho('Tênis Boreal - Olympikus Rosa',86.00)">Adicionar</button>
+            </div>
+            <div class="produto" data-tipo="tenis" data-cor="verde" data-forma="feminina">
+                <img src="../imagens/tenisasics.jpg" alt="tenis asics" width="200px">
+                <h3>Tênis - Asics</h3>
+                <p>Apresenta cabedal em mesh respirável, tecnologias de amortecimento em GEL ou espuma Amplifoam e solado de borracha aderente - Verde</p>
+                <span>R$ 119,90</span><br>
+                <button onclick="adicionarCarrinho('Tênis - Asics Verde',119.90)">Adicionar</button>
+            </div>
+            <div class="produto" data-tipo="moletom" data-cor="vermelho" data-forma="masculina">
+                <img src="../imagens/moletomfla.jpg" alt="Whey" width="200px">
+                <h3>Moletom Flamengo - RetroGol</h3>
+                <p>Moletom Flamengo Holographic Basic, possui tecido que fornece ótimo caimento e toque macio que aquece sem perder o estilo - Vermelho</p>
+                <span>R$ 220,00</span><br>
+                <button onclick="adicionarCarrinho('Moletom Flamengo - RetroGol Vermelho',220.00)">Adicionar</button>
+            </div>
+            <div class="produto" data-tipo="moletom" data-cor="azul" data-forma="masculina">
+                <img src="../imagens/molnike.jpg" alt="moletom nike" width="200px">
+                <h3>Moletom Esportivo - Nike</h3>
+                <p>Feita de algodão e poliéster, projetada para aquecer e garantir liberdade de movimentos. Possui capuz com cordão, bolso canguru frontal e punhos elásticos - Azul e Branco</p>
+                <span>R$ 82,99</span><br>
+                <button onclick="adicionarCarrinho('Moletom Esportivo - Nike Azul e Branco',82.99)">Adicionar</button>
+            </div>
+            <div class="produto" data-tipo="moletom" data-cor="preto" data-forma="masculina">
+                <img src="../imagens/molpull.webp" alt="Whey" width="200px">
+                <h3>Moletom PullOver Fashion</h3>
+                <p>Confeccionado em poliéster premium, este moletom com capuz oferece durabilidade e conforto para uso diário Preto</p>
+                <span>R$ 101,90</span><br>
+                <button onclick="adicionarCarrinho('Moletom PullOver Fashion Preto',101.90)">Adicionar</button>
+            </div>
+            <div class="produto" data-tipo="moletom" data-cor="rosa" data-forma="feminina">
+                <img src="../imagens/moladid.jpg" alt="Moletom Adidas" width="200px">
+                <h3>Moletom Adidas Essentials - Ativa Esportes</h3>
+                <p>O moletinho macio é perfeito para te apoiar em qualquer atividade, desde uma corrida pela manhã até um passeio com os amigos. E o mais importante, você pode se sentir bem enquanto faz isso - Rosa</p>
+                <span>R$ 169,90</span><br>
+                <button onclick="adicionarCarrinho('Moletom Adidas Essentials - Ativa Esportes Rosa',169.90)">Adicionar</button>
+            </div>
+            <div class="produto" data-tipo="moletom" data-cor="preto" data-forma="feminina">
+                <img src="../imagens/moletomcorrida.webp" alt="Moletom preto" width="200px">
+                <h3>Moletom Corrida e Esporte</h3>
+                <p>O design color block adiciona um toque moderno ao clássico esporte, fazendo com que ele se destaque - Preto</p>
+                <span>R$ 94,99</span><br>
+                <button onclick="adicionarCarrinho('Moletom Corrida e Esporte Preto',94.99)">Adicionar</button>
+            </div>
+            <div class="produto" data-tipo="moletom" data-cor="vermelho" data-forma="masculina">
+                <img src="../imagens/molferrari.jpg" alt="Whey" width="200px">
+                <h3>Moletom Esportivo - Ferrari</h3>
+                <p>Peça de vestuário casual e esportiva de alta qualidade, detalhes icônicos da escuderia e modelagem voltada para o bem-estar térmico - Vermelho</p>
+                <span>R$ 99,90</span><br>
+                <button onclick="adicionarCarrinho('Moletom Esportivo - Ferrari Vermelho',99.90)">Adicionar</button>
+            </div>
+        </section>
+    </main>
+<script src="../scripts/principal.js"></script>
+<script src="../scripts/roupas.js"></script>
+<script src="../scripts/carrinho.js"></script>
+<script src="../scripts/tema.js"></script>
 </body>
 </html>

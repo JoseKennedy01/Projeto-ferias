@@ -3,10 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Treinos</title>
+    <title>Fitness Stok</title>
+    <link rel="stylesheet" href="../estilos/principal.css">
+    <link rel="stylesheet" href="../estilos/media-queries.css">
     <link rel="shortcut icon" href="../imagens/favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
 </head>
 <body>
-    
+    <header>
+        <span id="burguer" class="material-icons" onclick="clickMenu()">menu</span>
+
+        <div class="titulo"><a href="../principal.html" id="titulo"><h1>Fitness <br> Stok</h1></a></div>
+
+        <button id="tema-toggle" class="tema-toggle" onclick="alternarTema()" aria-label="Alternar tema claro/escuro" title="Alternar tema">
+            <span class="material-icons">dark_mode</span>
+        </button>
+
+        <span class="material-icons" id="carrinho" onclick="abrirCarrinho()">
+            shopping_cart
+            <span id="carrinho-contador">0</span>
+        </span>
+
+        <a href="paginas/login.html" class="login-link">
+            <span class="material-icons">account_circle</span>
+            <span class="login-texto">Login</span>
+        </a>
+
+        <label for="busca"></label>
+        <div class="busca">
+            <input type="search" name="busca" id="busca" placeholder="O que você deseja procurar?" minlength="5" maxlength="50">
+            <span class="material-icons" id="busca-icone" onclick="acionarBusca()">search</span>
+        </div>
+    </header>
+
+    <nav>
+        <a href="./roupas.html">Vestimentas</a>
+        <a href="./treino.html">Treinos</a>
+        <a href="./sup.html">Suplementos</a>
+        <a href="./acessorios.html">Acessórios</a>
+        <a href="./login.html" class="nav-login">Login</a>
+    </nav>
+
+        <!-- ===================== PAINEL DO CARRINHO ===================== -->
+    <div id="carrinho-overlay" class="carrinho-overlay" onclick="fecharCarrinho()"></div>
+    <aside id="carrinho-painel" class="carrinho-painel" aria-hidden="true">
+        <div class="carrinho-topo">
+            <h2>Carrinho</h2>
+            <button id="fechar-carrinho" class="fechar-carrinho" onclick="fecharCarrinho()" aria-label="Fechar carrinho">&times;</button>
+        </div>
+
+        <div id="carrinho-itens" class="carrinho-itens">
+            <p class="carrinho-vazio">Seu carrinho está vazio.</p>
+        </div>
+
+        <div class="carrinho-rodape">
+            <p class="carrinho-total">Total: <span id="carrinho-total-valor">R$ 0,00</span></p>
+            <button id="finalizar-compra" class="finalizar" onclick="finalizarCompra()">Finalizar Compra</button>
+            <button id="limpar-carrinho" class="limpar" onclick="limparCarrinho()">Limpar carrinho</button>
+        </div>
+    </aside>
+
+    <script src="../scripts/principal.js"></script>
+    <script src="../scripts/sup.js"></script>
+    <script src="../scripts/carrinho.js"></script>
+    <script src="../scripts/tema.js"></script>
 </body>
 </html>

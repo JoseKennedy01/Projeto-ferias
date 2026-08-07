@@ -1,3 +1,13 @@
+function marcarPaginaAtual() {
+    const linksNav = document.querySelectorAll("nav a");
+    const paginaAtual = (window.location.pathname.split("/").pop() || "principal.html").toLowerCase();
+
+    linksNav.forEach((link) => {
+        const linkPagina = link.pathname.split("/").pop().toLowerCase();
+        link.classList.toggle("atual", linkPagina === paginaAtual);
+    });
+}
+
 function ajustarAlturaHeader() {
     const header = document.querySelector("header");
     if (!header) return;
@@ -23,6 +33,7 @@ function acionarBusca() {
 
 document.addEventListener("DOMContentLoaded", () => {
     ajustarAlturaHeader();
+    marcarPaginaAtual();
 
     const campo = document.getElementById("busca");
     const caixa = document.querySelector("header div.busca");

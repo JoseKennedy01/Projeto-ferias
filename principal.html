@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="estilos/media-queries.css">
     <link rel="shortcut icon" href="imagens/favicon.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
-    <script src="scripts/tema.js"></script>
 </head>
 <body>
     <header>
@@ -20,7 +19,10 @@
             <span class="material-icons">dark_mode</span>
         </button>
 
-        <span class="material-icons" id="carrinho">shopping_cart</span>
+        <span class="material-icons" id="carrinho" onclick="abrirCarrinho()">
+            shopping_cart
+            <span id="carrinho-contador">0</span>
+        </span>
 
         <a href="paginas/login.html" class="login-link">
             <span class="material-icons">account_circle</span>
@@ -89,10 +91,27 @@
 
     </main>
 
-    <footer>
+    <!-- ===================== PAINEL DO CARRINHO ===================== -->
+    <div id="carrinho-overlay" class="carrinho-overlay" onclick="fecharCarrinho()"></div>
+    <aside id="carrinho-painel" class="carrinho-painel" aria-hidden="true">
+        <div class="carrinho-topo">
+            <h2>Carrinho</h2>
+            <button id="fechar-carrinho" class="fechar-carrinho" onclick="fecharCarrinho()" aria-label="Fechar carrinho">&times;</button>
+        </div>
 
-    </footer>
+        <div id="carrinho-itens" class="carrinho-itens">
+            <p class="carrinho-vazio">Seu carrinho está vazio.</p>
+        </div>
 
+        <div class="carrinho-rodape">
+            <p class="carrinho-total">Total: <span id="carrinho-total-valor">R$ 0,00</span></p>
+            <button id="finalizar-compra" class="finalizar" onclick="finalizarCompra()">Finalizar Compra</button>
+            <button id="limpar-carrinho" class="limpar" onclick="limparCarrinho()">Limpar carrinho</button>
+        </div>
+    </aside>
+
+    <script src="scripts/carrinho.js"></script>
     <script src="scripts/principal.js"></script>
+    <script src="scripts/tema.js"></script>
 </body>
 </html>

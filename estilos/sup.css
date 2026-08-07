@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-    --cor0: #F5F5F5;
-    --cor1: #C6FF00;
-    --cor2: #FF5C00;
-    --cor3: #0D0D0D;
+    --card: #F4F4F2;
+    --borda: #E0E0E0;
+    --sec-text: #3f3f3f;
+    --dest: #A8E000;
+    --terc-cor: #0D0D0D;
 
     /*Fontes*/
     --padrao: "Montserrat", sans-serif;
@@ -40,6 +41,7 @@ section.anuncio {
 
 section.anuncio img {
     max-width: 100%;
+    margin: 20px auto;
     border-radius: 10px;   
   }
 

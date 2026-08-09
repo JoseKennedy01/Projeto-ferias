@@ -71,6 +71,63 @@
         font-size: 0.7em;
         border-width: 2px;
     }
+
+    /* Layout em cartao de duas colunas para "Quem Somos" */
+    main section.somos {
+        display: grid;
+        grid-template-columns: minmax(240px, 380px) 1fr;
+        grid-template-areas:
+            "imagem eyebrow"
+            "imagem titulo"
+            "imagem texto";
+        column-gap: 40px;
+        row-gap: 4px;
+        text-align: left;
+        align-items: start;
+        padding: 56px 40px;
+    }
+
+    main section.somos img {
+        grid-area: imagem;
+        align-self: center;
+        margin-bottom: 0;
+    }
+
+    main section.somos p:first-of-type {
+        grid-area: eyebrow;
+        order: 0;
+        align-self: end;
+    }
+
+    main section.somos p:first-of-type::after {
+        margin: 10px 0 0;
+    }
+
+    main section.somos h2 {
+        grid-area: titulo;
+        align-self: start;
+    }
+
+    main section.somos p:last-of-type {
+        grid-area: texto;
+        max-width: none;
+    }
+
+    main section.feedback form div.box {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 20px;
+        padding: 36px 40px;
+    }
+
+    main section.feedback form div.box p:nth-of-type(3) {
+        grid-column: 1 / -1;
+    }
+
+    main section.feedback input.botao,
+    main section.feedback input[type="reset"] {
+        margin-top: 0;
+    }
 }
 
 @media screen and (min-width: 1024px) {
@@ -109,7 +166,17 @@
         text-align: center;
     }
 
-     main  section.somos p {
-        max-width: 60%;
+    main section.somos {
+        grid-template-columns: minmax(300px, 440px) 1fr;
+        column-gap: 56px;
+        padding: 64px 20px;
+    }
+
+     main  section.somos p:last-of-type {
+        max-width: 640px;
+    }
+
+    section.descricao {
+        padding: 64px 20px 72px;
     }
 }

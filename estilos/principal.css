@@ -18,6 +18,11 @@
     --texto-suave: var(--sec-text);
     --cartao: var(--card);
     --cartao-borda: #000000;
+
+    /* Tokens de elevacao/espacamento (secoes do main) */
+    --sombra-suave: 0 10px 26px rgba(0, 0, 0, 0.08);
+    --sombra-forte: 0 18px 40px rgba(0, 0, 0, 0.16);
+    --secao-largura: 1100px;
 }
 
 :root[data-tema="escuro"] {
@@ -26,6 +31,9 @@
     --texto-suave: #b8b8b8;
     --cartao: #1e1e1e;
     --cartao-borda: #3a3a3a;
+
+    --sombra-suave: 0 10px 26px rgba(0, 0, 0, 0.35);
+    --sombra-forte: 0 18px 40px rgba(0, 0, 0, 0.55);
 }
 
 *, *::before, *::after {
@@ -279,21 +287,56 @@ nav a.atual {
     font-weight: bold;
 }
 
+/* ===================== HERO / DESCRICAO ===================== */
 section.descricao {
+    position: relative;
     text-align: center;
     margin-top: 20px;
     color: var(--texto-suave);
-    border-bottom: 2px solid var(--cartao-borda);
-    padding: 15px 10px;
+    padding: 48px 20px 56px;
+    overflow: hidden;
+    max-width: var(--secao-largura);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section.descricao::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(168, 224, 0, 0.16), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+section.descricao > * {
+    position: relative;
+    z-index: 1;
+}
+
+section.descricao::after {
+    content: "FITNESS STOK";
+    display: block;
+    font: 700 0.8em var(--padrao);
+    letter-spacing: 3px;
+    color: var(--dest);
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
 }
 
 section.descricao h2 {
     color: var(--texto);
-    font: bolder clamp(1.6em, 1.1em + 2vw, 3em) var(--titulo);
+    font: bolder clamp(1.8em, 1.2em + 2.6vw, 3.4em) var(--titulo);
+    letter-spacing: 1px;
+    line-height: 1.05;
 }
 
 section.descricao p {
-    font: bold 1em var(--padrao);
+    font: 500 1.05em/1.5 var(--padrao);
+    max-width: 560px;
+    margin: 16px auto 0;
 }
 
 section.descricao a {
@@ -301,47 +344,82 @@ section.descricao a {
     color: var(--terc-cor);
     background-color: var(--dest);
     border: 2px solid black;
-    padding: 10px 22px;
+    padding: 12px 28px;
     text-decoration: none;
     text-shadow: none;
-    margin: 15px 0px;
+    margin: 26px 0px 8px;
     font: bold 1.1em var(--padrao);
     border-radius: 10px;
-    transition: 0.3s;
+    box-shadow: var(--sombra-suave);
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 section.descricao a:hover {
     background-color: rgb(13, 13, 13);
     color: var(--dest);
-    text-decoration: underline;
+    text-decoration: none;
+    transform: translateY(-3px);
+    box-shadow: var(--sombra-forte);
 }
 
+/* Divisor sutil entre secoes do main (substitui a borda solida anterior) */
+section.descricao,
+section.somos {
+    border-bottom: 1px solid var(--cartao-borda);
+}
+
+/* ===================== QUEM SOMOS ===================== */
 section.somos {
     display: flex;
-    flex-direction: column;   
-    align-items: center;      
-    justify-content: center;  
-    text-align: center;       
-    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 48px 20px;
     color: var(--texto);
-    border-bottom: 2px solid var(--cartao-borda);
+    max-width: var(--secao-largura);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 section.somos img {
     max-width: 100%;
     height: auto;
-    margin-bottom: 15px;      
+    margin-bottom: 20px;
+    border-radius: 14px;
+    box-shadow: var(--sombra-forte);
 }
 
+section.somos p:first-of-type {
+    order: -1;
+    font: 700 0.8em var(--padrao);
+    letter-spacing: 3px;
+    color: var(--dest);
+    margin-top: 0;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+section.somos p:first-of-type::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 3px;
+    background-color: var(--dest);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
 
 section.somos h2 {
-    font: bold 1.6em var(--titulo);
+    font: bold 1.8em var(--titulo);
+    letter-spacing: 1px;
 }
 
-section.somos p {
-    font: normal 0.9em var(--padrao);
-    line-height: 1.5;
-    margin-top: 10px;
+section.somos p:last-of-type {
+    font: normal 0.95em var(--padrao);
+    line-height: 1.6;
+    margin-top: 14px;
+    max-width: 640px;
     color: var(--texto-suave);
 }
 
@@ -355,27 +433,56 @@ section.somos a:hover {
     text-decoration: underline;
 }
 
+/* ===================== FALE CONOSCO ===================== */
+section.feedback:empty {
+    display: none;
+}
+
 section.feedback {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--padrao);
+    padding: 48px 20px;
+    max-width: var(--secao-largura);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 section.feedback h2 {
     padding: 10px;
-    font: bold 1.6em var(--titulo);
+    font: bold 1.8em var(--titulo);
     text-align: center;
+    letter-spacing: 1px;
     color: var(--texto);
+    margin-bottom: 8px;
 }
 
 section.feedback label {
-    color: var(--texto);
+    display: block;
+    font: 700 0.75em var(--padrao);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+    margin-bottom: 6px;
 }
 
 section.feedback form div.box {
     background-color: var(--cartao);
-    padding: 15px;
-    border: 2px solid var(--cartao-borda);
-    margin: 0px 5%;
-    border-radius: 10px;
+    padding: 28px 24px;
+    border: 1px solid var(--cartao-borda);
+    margin: 0 auto;
+    max-width: 640px;
+    border-radius: 14px;
+    box-shadow: var(--sombra-suave);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+section.feedback form div.box br {
+    display: none;
+}
+
+section.feedback form div.box p {
+    margin: 0;
 }
 
 .esq {
@@ -386,26 +493,70 @@ section.feedback form div.box {
 section.feedback input[type="text"] {
     width: 100%;
     max-width: 100%;
-    padding: 6px;
+    padding: 11px 12px;
     background-color: var(--fundo);
     color: var(--texto);
     border: 1px solid var(--cartao-borda);
-    border-radius: 4px;
+    border-radius: 8px;
+    font: 400 0.95em var(--padrao);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 section.feedback textarea#desc {
     width: 100%;
     max-width: 100%;
-    height: 160px;
-    padding: 6px;
+    height: 150px;
+    padding: 11px 12px;
     background-color: var(--fundo);
     color: var(--texto);
     border: 1px solid var(--cartao-borda);
-    border-radius: 4px;
+    border-radius: 8px;
+    font: 400 0.95em var(--padrao);
+    resize: vertical;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+section.feedback input[type="text"]:focus,
+section.feedback textarea#desc:focus {
+    outline: none;
+    border-color: var(--dest);
+    box-shadow: 0 0 0 3px rgba(168, 224, 0, 0.28);
+}
+
+section.feedback input.botao,
+section.feedback input[type="reset"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 4px;
+    border-radius: 8px;
+    font: bold 0.95em var(--padrao);
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 section.feedback input.botao {
-    margin-top: 5px;
+    background-color: var(--dest);
+    color: var(--terc-cor);
+    border: 2px solid black;
+    box-shadow: var(--sombra-suave);
+}
+
+section.feedback input.botao:hover {
+    background-color: var(--terc-cor);
+    color: var(--dest);
+    transform: translateY(-2px);
+    box-shadow: var(--sombra-forte);
+}
+
+section.feedback input[type="reset"] {
+    background-color: transparent;
+    color: var(--texto-suave);
+    border: 1px solid var(--cartao-borda);
+}
+
+section.feedback input[type="reset"]:hover {
+    color: #d33;
+    border-color: #d33;
 }
 /* ===================== PAINEL DO CARRINHO ===================== */
 div.carrinho-overlay {
@@ -582,4 +733,122 @@ div button.limpar {
 div button.limpar:hover {
     color: #d33;
     border-color: #d33;
+}
+
+.rodape {
+  background-color: #0D0D0D;
+  color: #E5E5E5;
+  padding: 60px 8% 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.rodape-conteudo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+  padding-bottom: 40px;
+}
+
+.rodape-marca {
+  max-width: 320px;
+}
+
+.rodape-titulo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  color: #FFFFFF;
+}
+
+.rodape-titulo span {
+  color: #A8E000;
+}
+
+.rodape-texto {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #B3B3B3;
+  margin-bottom: 20px;
+}
+
+.rodape-redes {
+  display: flex;
+  gap: 12px;
+}
+
+.rodape-rede {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: #1A1A1A;
+  color: #A8E000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.rodape-rede:hover {
+  background-color: #A8E000;
+  color: #0D0D0D;
+  transform: translateY(-3px);
+}
+
+.rodape-coluna h4 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  color: #A8E000;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.rodape-coluna ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rodape-coluna a {
+  color: #B3B3B3;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.rodape-coluna a:hover {
+  color: #A8E000;
+}
+
+.rodape-base {
+  border-top: 1px solid #262626;
+  padding: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 0.8rem;
+  color: #808080;
+}
+
+.rodape-base strong {
+  color: #A8E000;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .rodape-conteudo {
+    flex-direction: column;
+  }
+
+  .rodape-base {
+    flex-direction: column;
+    text-align: center;
+  }
 }

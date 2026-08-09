@@ -3,9 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedbacks</title>
+    <title>Saiba Mais | Fitness Stok</title>
+    <link rel="stylesheet" href="../estilos/principal.css">
+    <link rel="stylesheet" href="../estilos/media-queries.css">
+    <link rel="stylesheet" href="../estilos/saibamais.css">
+    <link rel="shortcut icon" href="../imagens/favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    
+    <header>
+        <span id="burguer" class="material-icons" onclick="clickMenu()">menu</span>
+
+        <div class="titulo"><a href="../principal.html" id="titulo"><h1>Fitness <br> Stok</h1></a></div>
+
+        <button id="tema-toggle" class="tema-toggle" onclick="alternarTema()" aria-label="Alternar tema claro/escuro" title="Alternar tema">
+            <span class="material-icons">dark_mode</span>
+        </button>
+
+        <span class="material-icons" id="carrinho" onclick="abrirCarrinho()">
+            shopping_cart
+            <span id="carrinho-contador">0</span>
+        </span>
+
+        <a href="login.html" class="login-link">
+            <span class="material-icons">account_circle</span>
+            <span class="login-texto">Login</span>
+        </a>
+
+        <label for="busca"></label>
+        <div class="busca">
+            <input type="search" name="busca" id="busca" placeholder="O que você deseja procurar?" minlength="5" maxlength="50">
+            <span class="material-icons" id="busca-icone" onclick="acionarBusca()">search</span>
+        </div>
+    </header>
+
+    <nav>
+        <a href="roupas.html">Vestimentas</a>
+        <a href="treino.html">Treinos</a>
+        <a href="sup.html">Suplementos</a>
+        <a href="acessorios.html">Acessórios</a>
+        <a href="login.html" class="nav-login">Login</a>
+    </nav>
+
+    <main class="sobre-main">
+
+        <!-- ===================== HERO ===================== -->
+        <section class="sobre-hero">
+            <span class="eyebrow">SOBRE NÓS</span>
+            <h1>Fitness Stok nasceu dentro da academia, não em uma sala de reunião.</h1>
+            <p class="sobre-lead">Somos uma loja criada por quem treina, pra quem treina: peças, suplementos e acessórios selecionados na prática, sem enrolação e sem promessa vazia.</p>
+
+            <div class="sobre-stats">
+                <div class="stat">
+                    <strong>2024</strong>
+                    <span>Ano de fundação</span>
+                </div>
+                <div class="stat">
+                    <strong>+30</strong>
+                    <span>Produtos selecionados a dedo</span>
+                </div>
+                <div class="stat">
+                    <strong>100%</strong>
+                    <span>Testado por quem treina</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== NOSSA HISTÓRIA ===================== -->
+        <section class="sobre-historia">
+            <div class="sobre-texto">
+                <span class="sobre-eyebrow">NOSSA HISTÓRIA</span>
+                <h2>De um grupo de treino a uma loja completa</h2>
+                <p>Tudo começou em 2024, quando um grupo de amigos que treinava junto todos os dias cansou de comprar suplemento sem procedência e roupa de treino que rasgava na segunda lavagem. A solução foi simples: testar tudo antes de recomendar pra alguém.</p>
+                <p>O que era uma lista de produtos indicados dentro do grupo virou catálogo, virou site, e hoje é a Fitness Stok: uma loja pequena, mas exigente, que só coloca no catálogo o que a própria equipe usaria no treino de amanhã.</p>
+            </div>
+
+            <div class="imagem-placeholder">
+                <img src="../imagens/pessoas-treinando.jpg" alt="Pessoas na academia">
+            </div>
+        </section>
+
+        <!-- ===================== MISSÃO / VISÃO / VALORES ===================== -->
+        <section class="sobre-pilares">
+            <span class="sobre-eyebrow">O QUE NOS MOVE</span>
+            <h2>Missão, visão e valores</h2>
+
+            <div class="sobre-cards">
+                <div class="sobre-card">
+                    <span class="material-icons">flag</span>
+                    <h3>Missão</h3>
+                    <p>Dar a quem treina acesso a produtos de verdade, direto do fornecedor pra sua mochila, sem intermediário e sem enrolação.</p>
+                </div>
+                <div class="sobre-card">
+                    <span class="material-icons">visibility</span>
+                    <h3>Visão</h3>
+                    <p>Ser a primeira loja que vem à cabeça de quem leva o treino a sério, dentro e fora da academia.</p>
+                </div>
+                <div class="sobre-card">
+                    <span class="material-icons">favorite</span>
+                    <h3>Valores</h3>
+                    <p>Transparência, curadoria de verdade e respeito pelo tempo e pelo dinheiro de quem treina.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== DIFERENCIAIS ===================== -->
+        <section class="sobre-diferenciais">
+            <span class="sobre-eyebrow">POR QUE A FITNESS STOK</span>
+            <h2>Nossos diferenciais</h2>
+
+            <div class="sobre-diferenciais-grid">
+                <div class="diferencial">
+                    <span class="material-icons">verified_user</span>
+                    <div>
+                        <h3>Curadoria própria</h3>
+                        <p>Cada produto passa por teste interno da equipe antes de entrar no catálogo.</p>
+                    </div>
+                </div>
+                <div class="diferencial">
+                    <span class="material-icons">local_shipping</span>
+                    <div>
+                        <h3>Envio rápido</h3>
+                        <p>Trabalhamos com parceiros logísticos ágeis pra sua compra não virar treino de paciência.</p>
+                    </div>
+                </div>
+                <div class="diferencial">
+                    <span class="material-icons">fitness_center</span>
+                    <div>
+                        <h3>Feito pra quem treina</h3>
+                        <p>Peças e acessórios pensados pra rotina real de treino, não só pra vitrine.</p>
+                    </div>
+                </div>
+                <div class="diferencial">
+                    <span class="material-icons">groups</span>
+                    <div>
+                        <h3>Comunidade</h3>
+                        <p>Mais que uma loja, um ponto de encontro pra quem constrói disciplina todos os dias.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== COMUNIDADE / BANNER ===================== -->
+        <section class="sobre-comunidade">
+            <div class="sobre-comunidade-conteudo">
+                <div class="imagem-placeholder banner">
+                    <img src="../imagens/treinamento.png" alt="Treinamento">
+                </div>
+
+                <div class="sobre-comunidade-texto">
+                    <span class="sobre-eyebrow">NA PRÁTICA</span>
+                    <h2>Feito por quem treina, pra quem treina</h2>
+                    <p>Cada peça da Fitness Stok passa pelo mesmo treino que o seu. Se não aguenta a nossa rotina, não entra no catálogo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== CTA FINAL ===================== -->
+        <section class="sobre-cta">
+            <h2>Pronto pra elevar seu treino?</h2>
+            <p>Confira nossos suplementos, vestimentas e acessórios selecionados pra quem não abre mão de qualidade.</p>
+
+            <div class="sobre-cta-botoes">
+                <a href="sup.html" class="principal">Ver produtos</a>
+                <a href="../principal.html" class="secundario">Voltar ao início</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===================== PAINEL DO CARRINHO ===================== -->
+    <div id="carrinho-overlay" class="carrinho-overlay" onclick="fecharCarrinho()"></div>
+    <aside id="carrinho-painel" class="carrinho-painel" aria-hidden="true">
+        <div class="carrinho-topo">
+            <h2>Carrinho</h2>
+            <button id="fechar-carrinho" class="fechar-carrinho" onclick="fecharCarrinho()" aria-label="Fechar carrinho">&times;</button>
+        </div>
+
+        <div id="carrinho-itens" class="carrinho-itens">
+            <p class="carrinho-vazio">Seu carrinho está vazio.</p>
+        </div>
+
+        <div class="carrinho-rodape">
+            <p class="carrinho-total">Total: <span id="carrinho-total-valor">R$ 0,00</span></p>
+            <button id="finalizar-compra" class="finalizar" onclick="finalizarCompra()">Finalizar Compra</button>
+            <button id="limpar-carrinho" class="limpar" onclick="limparCarrinho()">Limpar carrinho</button>
+        </div>
+    </aside>
+
+    <script src="../scripts/carrinho.js"></script>
+    <script src="../scripts/principal.js"></script>
+    <script src="../scripts/tema.js"></script>
+
+    <footer class="rodape">
+        <div class="rodape-conteudo">
+            <div class="rodape-marca">
+              <h3 class="rodape-titulo">FITNESS <span>STOK</span></h3>
+              <p class="rodape-texto">
+                Suplementos, treinos e acessórios para quem leva o treino a sério.
+              </p>
+            </div>
+
+            <div class="rodape-coluna">
+              <h4>Institucional</h4>
+              <ul>
+                <li><a href="saiba-mais.html">Sobre nós</a></li>
+                <li><a href="#">Política de Trocas</a></li>
+                <li><a href="#">Termos de Uso</a></li>
+                <li><a href="#">Privacidade</a></li>
+              </ul>
+            </div>
+
+            <div class="rodape-coluna">
+              <h4>Categorias</h4>
+              <ul>
+                <li><a href="sup.html">Suplementos</a></li>
+                <li><a href="treino.html">Treinos</a></li>
+                <li><a href="roupas.html">Vestimentas</a></li>
+                <li><a href="acessorios.html">Acessórios</a></li>
+              </ul>
+            </div>
+        </div>
+
+        <div class="rodape-base">
+        <p>&copy; 2026 Fitness Stok. Todos os direitos reservados.</p>
+        <p>Desenvolvido por <strong>José Kennedy</strong> e <strong>Thiago Rodrigues</strong></p>
+        </div>
+    </footer>
 </body>
 </html>

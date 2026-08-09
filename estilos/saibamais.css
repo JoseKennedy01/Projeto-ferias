@@ -1,0 +1,366 @@
+@charset "UTF-8";
+
+main.sobre-main {
+    max-width: var(--secao-largura, 1100px);
+    margin: 0 auto;
+}
+
+/* ===================== HERO (faixa escura) ===================== */
+section.sobre-hero {
+    background-color: var(--terc-cor);
+    background-image: radial-gradient(circle at 15% 20%, rgba(168, 224, 0, 0.18), transparent 55%);
+    color: #ffffff;
+    text-align: center;
+    padding: 56px 20px 48px;
+    margin-bottom: 8px;
+}
+
+section.sobre-hero .eyebrow {
+    display: inline-block;
+    font: 700 0.8em var(--padrao);
+    letter-spacing: 3px;
+    color: var(--dest);
+    margin-bottom: 14px;
+}
+
+section.sobre-hero h1 {
+    font: bolder clamp(1.8em, 1.2em + 2.6vw, 3.2em) var(--titulo);
+    letter-spacing: 1px;
+    line-height: 1.1;
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+section.sobre-hero p.sobre-lead {
+    font: 500 1.05em/1.6 var(--padrao);
+    color: #d8d8d8;
+    max-width: 600px;
+    margin: 18px auto 0;
+}
+
+.sobre-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    max-width: 560px;
+    margin: 36px auto 0;
+}
+
+.sobre-stats .stat {
+    border-left: 2px solid rgba(168, 224, 0, 0.4);
+    padding: 4px 8px;
+}
+
+.sobre-stats .stat:first-child {
+    border-left: none;
+}
+
+.sobre-stats .stat strong {
+    display: block;
+    font: bold clamp(1.4em, 1em + 1.5vw, 2em) var(--titulo);
+    color: var(--dest);
+}
+
+.sobre-stats .stat span {
+    display: block;
+    font: 500 0.75em var(--padrao);
+    color: #b8b8b8;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+}
+
+/* ===================== NOSSA HISTÓRIA ===================== */
+section.sobre-historia {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    align-items: center;
+    padding: 48px 20px;
+    color: var(--texto);
+    border-bottom: 1px solid var(--cartao-borda);
+}
+
+.sobre-eyebrow {
+    display: block;
+    font: 700 0.8em var(--padrao);
+    letter-spacing: 3px;
+    color: var(--dest);
+    margin-bottom: 10px;
+}
+
+section.sobre-historia h2,
+section.sobre-pilares h2,
+section.sobre-comunidade h2,
+section.sobre-cta h2 {
+    font: bold clamp(1.4em, 1.1em + 1.2vw, 2.1em) var(--titulo);
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+}
+
+section.sobre-historia p,
+section.sobre-comunidade p {
+    font: normal 0.95em/1.65 var(--padrao);
+    color: var(--texto-suave);
+}
+
+section.sobre-historia p + p {
+    margin-top: 12px;
+}
+
+.imagem-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    aspect-ratio: 4 / 3;
+    background-color: var(--cartao);
+    border: 2px dashed var(--cartao-borda);
+    border-radius: 14px;
+    color: var(--texto-suave);
+    text-align: center;
+    padding: 10px;
+}
+
+.imagem-placeholder .material-icons {
+    font-size: 2.4em;
+    color: var(--dest);
+}
+
+.imagem-placeholder span.dica {
+    font: 500 0.85em var(--padrao);
+    max-width: 260px;
+}
+
+/* ===================== MISSÃO / VISÃO / VALORES ===================== */
+section.sobre-pilares {
+    padding: 48px 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--cartao-borda);
+}
+
+section.sobre-pilares .sobre-eyebrow {
+    display: block;
+    text-align: center;
+}
+
+section.sobre-pilares h2 {
+    text-align: center;
+}
+
+.sobre-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 30px;
+    text-align: left;
+}
+
+.sobre-card {
+    background-color: var(--cartao);
+    border: 1px solid var(--cartao-borda);
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: var(--sombra-suave);
+}
+
+.sobre-card .material-icons {
+    color: var(--dest);
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.sobre-card h3 {
+    font: bold 1.1em var(--titulo);
+    letter-spacing: 0.5px;
+    color: var(--texto);
+    margin-bottom: 8px;
+}
+
+.sobre-card p {
+    font: normal 0.9em/1.55 var(--padrao);
+    color: var(--texto-suave);
+}
+
+/* ===================== DIFERENCIAIS ===================== */
+section.sobre-diferenciais {
+    padding: 48px 20px;
+    border-bottom: 1px solid var(--cartao-borda);
+}
+
+section.sobre-diferenciais .sobre-eyebrow,
+section.sobre-diferenciais h2 {
+    text-align: center;
+}
+
+.sobre-diferenciais-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin-top: 30px;
+}
+
+.diferencial {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.diferencial .material-icons {
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--dest);
+    color: var(--terc-cor);
+    border-radius: 50%;
+    border: 2px solid black;
+    font-size: 1.3em;
+}
+
+.diferencial h3 {
+    font: bold 1em var(--titulo);
+    letter-spacing: 0.5px;
+    color: var(--texto);
+    margin-bottom: 4px;
+}
+
+.diferencial p {
+    font: normal 0.9em/1.55 var(--padrao);
+    color: var(--texto-suave);
+}
+
+section.sobre-comunidade {
+    padding: 50px 20px;
+    border-bottom: 1px solid var(--cartao-borda);
+}
+
+.sobre-comunidade-conteudo {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    align-items: center;
+}
+
+.sobre-comunidade-texto {
+    text-align: center;
+}
+
+.imagem-placeholder.banner {
+    aspect-ratio: 16 / 7;
+}
+
+/* ===================== CTA FINAL ===================== */
+section.sobre-cta {
+    text-align: center;
+    padding: 52px 20px 64px;
+}
+
+section.sobre-cta h2 {
+    color: var(--texto);
+}
+
+section.sobre-cta p {
+    font: 500 1em/1.6 var(--padrao);
+    color: var(--texto-suave);
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.sobre-cta-botoes {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+    margin-top: 26px;
+}
+
+.sobre-cta-botoes a {
+    display: inline-block;
+    text-decoration: none;
+    font: bold 1.05em var(--padrao);
+    padding: 12px 30px;
+    border-radius: 10px;
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.sobre-cta-botoes a.principal {
+    background-color: var(--dest);
+    color: var(--terc-cor);
+    border: 2px solid black;
+    box-shadow: var(--sombra-suave);
+}
+
+.sobre-cta-botoes a.principal:hover {
+    background-color: var(--terc-cor);
+    color: var(--dest);
+    transform: translateY(-3px);
+    box-shadow: var(--sombra-forte);
+}
+
+.sobre-cta-botoes a.secundario {
+    color: var(--texto);
+    border: 1px solid var(--cartao-borda);
+}
+
+.sobre-cta-botoes a.secundario:hover {
+    color: var(--dest);
+    border-color: var(--dest);
+}
+
+/* ===================== RESPONSIVO ===================== */
+@media screen and (min-width: 768px) {
+    section.sobre-historia {
+        grid-template-columns: 1.1fr 0.9fr;
+        text-align: left;
+        padding: 64px 40px;
+    }
+
+    section.sobre-historia .sobre-texto {
+        order: 0;
+    }
+
+    .sobre-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .sobre-diferenciais-grid {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 32px;
+    }
+
+    .sobre-comunidade-conteudo {
+        grid-template-columns: 1fr 1fr;
+        text-align: left;
+    }
+
+    .sobre-comunidade-texto {
+        text-align: left;
+    }
+
+    .sobre-cta-botoes {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    section.sobre-pilares,
+    section.sobre-diferenciais {
+        padding: 64px 40px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    section.sobre-hero {
+        padding: 72px 20px 60px;
+    }
+
+    section.sobre-historia,
+    section.sobre-pilares,
+    section.sobre-diferenciais,
+    section.sobre-comunidade {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}

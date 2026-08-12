@@ -1,0 +1,730 @@
+@charset "UTF-8";
+
+.treino-secao .material-icons,
+.treino-hero .material-icons,
+.treino-contato-banner .material-icons {
+    font-family: 'Material Icons' !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+}
+
+/* ---------- Wrapper genérico de seção (mesmo padrão de .descricao/.somos) ---------- */
+.treino-secao {
+    padding: 48px 20px;
+    max-width: var(--secao-largura);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.treino-secao-cabecalho {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.treino-secao-cabecalho.esquerda {
+    text-align: left;
+}
+
+/* Eyebrow reutilizando o mesmo padrão visual do "QUEM SOMOS" */
+.secao-eyebrow {
+    display: inline-block;
+    font: 700 0.8em var(--padrao);
+    letter-spacing: 3px;
+    color: var(--dest);
+    margin: 0 0 12px;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.secao-eyebrow::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 3px;
+    background-color: var(--dest);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.treino-secao-cabecalho.esquerda .secao-eyebrow::after {
+    margin: 10px 0 0;
+}
+
+.treino-secao-titulo {
+    font: bold clamp(1.5em, 1.2em + 1vw, 2em) var(--titulo);
+    letter-spacing: 1px;
+    color: var(--texto);
+}
+
+.treino-secao-subtitulo {
+    font: 500 1em/1.6 var(--padrao);
+    color: var(--texto-suave);
+    max-width: 560px;
+    margin: 12px auto 0;
+}
+
+.treino-secao-cabecalho.esquerda .treino-secao-subtitulo {
+    margin: 12px 0 0;
+}
+
+/* ---------- Botões reutilizáveis ---------- */
+.btn-primario,
+.btn-secundario {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 26px;
+    font: bold 1em var(--padrao);
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.btn-primario {
+    background-color: var(--dest);
+    color: var(--terc-cor);
+    border: 2px solid black;
+    box-shadow: var(--sombra-suave);
+}
+
+.btn-primario:hover {
+    background-color: var(--terc-cor);
+    color: var(--dest);
+    transform: translateY(-3px);
+    box-shadow: var(--sombra-forte);
+}
+
+.btn-secundario {
+    background-color: transparent;
+    color: var(--texto);
+    border: 2px solid var(--cartao-borda);
+}
+
+.btn-secundario:hover {
+    border-color: var(--dest);
+    color: var(--dest);
+    transform: translateY(-3px);
+}
+
+.treino-cta-grupo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 26px;
+}
+
+.treino-cta-grupo.centro {
+    justify-content: center;
+}
+
+/* ======================================================================
+   HERO
+   ====================================================================== */
+.treino-hero {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 36px;
+    align-items: center;
+    padding-top: 40px;
+    border-bottom: 1px solid var(--cartao-borda);
+}
+
+.treino-hero-texto {
+    text-align: center;
+}
+
+.treino-hero-titulo {
+    font: bolder clamp(1.9em, 1.3em + 2.6vw, 3.2em) var(--titulo);
+    letter-spacing: 1px;
+    line-height: 1.08;
+    color: var(--texto);
+}
+
+.treino-hero-titulo span {
+    color: var(--dest);
+}
+
+.treino-hero-subtitulo {
+    font: 500 1.05em/1.6 var(--padrao);
+    color: var(--texto-suave);
+    max-width: 480px;
+    margin: 18px auto 0;
+}
+
+.treino-hero-visual {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+}
+
+.treino-hero-visual img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: var(--sombra-forte);
+}
+
+@keyframes flutuar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .treino-hero-badge {
+        animation: none;
+    }
+}
+
+/* ======================================================================
+   TREINOS PERSONALIZADOS (estado logado / deslogado)
+   ====================================================================== */
+.treino-personalizados {
+    border-bottom: 1px solid var(--cartao-borda);
+}
+
+.treino-estado {
+    display: none;
+}
+
+.treino-estado.ativo {
+    display: block;
+}
+
+/* --- Estado: deslogado --- */
+.treino-login-card {
+    max-width: 560px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: var(--cartao);
+    border: 1px solid var(--cartao-borda);
+    border-radius: 16px;
+    padding: 40px 32px;
+    box-shadow: var(--sombra-suave);
+}
+
+.treino-login-card .material-icons {
+    font-size: 2.4em;
+    color: var(--dest);
+    margin-bottom: 10px;
+}
+
+.treino-login-card h3 {
+    font: bold 1.4em var(--titulo);
+    letter-spacing: 0.5px;
+    color: var(--texto);
+    margin-bottom: 10px;
+}
+
+.treino-login-card p {
+    font: 500 0.95em/1.6 var(--padrao);
+    color: var(--texto-suave);
+}
+
+/* --- Estado: logado --- */
+.treino-boasvindas h3 {
+    font: bold 1.5em var(--titulo);
+    letter-spacing: 0.5px;
+    color: var(--texto);
+}
+
+.treino-boasvindas h3 span {
+    color: var(--dest);
+}
+
+.treino-boasvindas p {
+    font: 500 0.95em var(--padrao);
+    color: var(--texto-suave);
+    margin-top: 6px;
+    margin-bottom: 28px;
+}
+
+.treino-grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.treino-card {
+    background-color: var(--cartao);
+    border: 1px solid var(--cartao-borda);
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: var(--sombra-suave);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.treino-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--sombra-forte);
+}
+
+.treino-card-topo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.treino-card-icone {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background-color: var(--dest);
+    color: var(--terc-cor);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.treino-card-topo h4 {
+    font: bold 1.1em var(--titulo);
+    letter-spacing: 0.5px;
+    color: var(--texto);
+}
+
+.treino-card-topo span:not(.material-icons) {
+    display: block;
+    font: 500 0.8em var(--padrao);
+    color: var(--texto-suave);
+}
+
+.treino-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.treino-card-meta span:not(.material-icons) {
+    font: 600 0.72em var(--padrao);
+    letter-spacing: 0.4px;
+    color: var(--texto-suave);
+    background-color: var(--fundo);
+    border: 1px solid var(--cartao-borda);
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.treino-card-meta .material-icons {
+    font-size: 1em;
+}
+
+.treino-card button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    font: bold 0.85em var(--padrao);
+    background-color: transparent;
+    color: var(--texto);
+    border: 2px solid var(--cartao-borda);
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.treino-card button:hover {
+    background-color: var(--dest);
+    border-color: black;
+    color: var(--terc-cor);
+}
+
+/* ======================================================================
+   COMO FUNCIONA
+   ====================================================================== */
+.treino-passos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+}
+
+.treino-passo {
+    text-align: center;
+    padding: 8px;
+}
+
+.treino-passo-numero {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    background-color: var(--terc-cor);
+    color: var(--dest);
+    border: 2px solid var(--dest);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: bold 1.1em var(--titulo);
+    letter-spacing: 1px;
+}
+
+.treino-passo h4 {
+    font: bold 1.1em var(--titulo);
+    letter-spacing: 0.5px;
+    color: var(--texto);
+    margin-bottom: 8px;
+}
+
+.treino-passo p {
+    font: 500 0.9em/1.55 var(--padrao);
+    color: var(--texto-suave);
+}
+
+/* ======================================================================
+   PERSONAL TRAINERS
+   ====================================================================== */
+.treino-grid-personais {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 22px;
+}
+
+.personal-card {
+    background-color: var(--cartao);
+    border: 1px solid var(--cartao-borda);
+    border-radius: 14px;
+    padding: 24px;
+    text-align: center;
+    box-shadow: var(--sombra-suave);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.personal-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--sombra-forte);
+}
+
+.personal-avatar {
+    width: 68px;
+    height: 68px;
+    margin: 0 auto 14px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: bold 1.2em var(--titulo);
+    color: var(--terc-cor);
+    letter-spacing: 1px;
+    background-color: var(--dest);
+}
+
+.personal-avatar.escuro {
+    background-color: var(--terc-cor);
+    color: var(--dest);
+    border: 2px solid var(--dest);
+}
+
+.personal-card h4 {
+    font: bold 1.15em var(--titulo);
+    letter-spacing: 0.5px;
+    color: var(--texto);
+}
+
+.personal-especialidade {
+    display: inline-block;
+    margin: 8px 0 4px;
+    font: 700 0.68em var(--padrao);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--dest);
+    background-color: var(--fundo);
+    border: 1px solid var(--cartao-borda);
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.personal-experiencia {
+    font: 500 0.8em var(--padrao);
+    color: var(--texto-suave);
+    margin-bottom: 8px;
+}
+
+.personal-avaliacao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font: 600 0.85em var(--padrao);
+    color: var(--texto);
+    margin-bottom: 10px;
+}
+
+.personal-avaliacao .estrelas {
+    color: var(--dest);
+    font-size: 1em;
+    letter-spacing: 1px;
+}
+
+.personal-bio {
+    font: 400 0.85em/1.55 var(--padrao);
+    color: var(--texto-suave);
+    margin-bottom: 18px;
+    min-height: 62px;
+}
+
+.personal-card-acoes {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.personal-card-acoes button,
+.personal-card-acoes a {
+    width: 100%;
+    padding: 9px;
+    border-radius: 8px;
+    font: bold 0.82em var(--padrao);
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    transition: 0.25s;
+}
+
+.personal-btn-perfil {
+    background-color: transparent;
+    color: var(--texto);
+    border: 2px solid var(--cartao-borda);
+}
+
+.personal-btn-perfil:hover {
+    border-color: var(--dest);
+    color: var(--dest);
+}
+
+.personal-btn-contato {
+    background-color: var(--dest);
+    color: var(--terc-cor);
+    border: 2px solid black;
+}
+
+.personal-btn-contato:hover {
+    background-color: var(--terc-cor);
+    color: var(--dest);
+}
+
+/* ======================================================================
+   BANNER DE CONTATO
+   ====================================================================== */
+.treino-contato-banner {
+    background-image: linear-gradient(135deg, var(--terc-cor), #1b1b1b);
+    color: white;
+    text-align: center;
+    border-radius: 18px;
+    padding: 52px 24px;
+    max-width: var(--secao-largura);
+    margin: 0 auto;
+    box-shadow: var(--sombra-forte);
+}
+
+.treino-contato-banner .secao-eyebrow {
+    color: var(--dest);
+}
+
+.treino-contato-banner h2 {
+    font: bold clamp(1.4em, 1.1em + 1.4vw, 2em) var(--titulo);
+    letter-spacing: 0.5px;
+    margin-bottom: 14px;
+}
+
+.treino-contato-banner p {
+    font: 500 0.95em/1.6 var(--padrao);
+    color: #cfcfcf;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.treino-contato-banner .treino-cta-grupo {
+    justify-content: center;
+}
+
+/* ======================================================================
+   AVALIAÇÕES
+   ====================================================================== */
+.treino-grid-avaliacoes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.avaliacao-card {
+    background-color: var(--cartao);
+    border: 1px solid var(--cartao-borda);
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: var(--sombra-suave);
+}
+
+.avaliacao-topo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.avaliacao-avatar {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background-color: var(--terc-cor);
+    color: var(--dest);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: bold 0.85em var(--padrao);
+}
+
+.avaliacao-topo h4 {
+    font: 700 0.95em var(--padrao);
+    color: var(--texto);
+}
+
+.avaliacao-topo .estrelas {
+    color: var(--dest);
+    font-size: 0.85em;
+    letter-spacing: 1px;
+}
+
+.avaliacao-comentario {
+    font: 400 0.88em/1.6 var(--padrao);
+    color: var(--texto-suave);
+    margin-bottom: 14px;
+}
+
+.avaliacao-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.avaliacao-meta span {
+    font: 600 0.68em var(--padrao);
+    letter-spacing: 0.3px;
+    color: var(--texto-suave);
+    background-color: var(--fundo);
+    border: 1px solid var(--cartao-borda);
+    padding: 4px 9px;
+    border-radius: 20px;
+}
+
+/* ======================================================================
+   ESTATÍSTICAS
+   ====================================================================== */
+.treino-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    text-align: center;
+}
+
+.stat-item strong {
+    display: block;
+    font: bold clamp(1.8em, 1.4em + 1.4vw, 2.6em) var(--titulo);
+    color: var(--dest);
+    letter-spacing: 0.5px;
+}
+
+.stat-item span {
+    display: block;
+    font: 600 0.78em var(--padrao);
+    letter-spacing: 0.4px;
+    color: var(--texto-suave);
+    margin-top: 4px;
+}
+
+/* ======================================================================
+   CTA FINAL
+   ====================================================================== */
+.treino-cta-final {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+.treino-cta-final::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(168, 224, 0, 0.16), transparent 60%);
+    pointer-events: none;
+}
+
+.treino-cta-final > * {
+    position: relative;
+    z-index: 1;
+}
+
+.treino-cta-final h2 {
+    font: bolder clamp(1.7em, 1.2em + 2vw, 2.6em) var(--titulo);
+    letter-spacing: 1px;
+    color: var(--texto);
+}
+
+.treino-cta-final p {
+    font: 500 1em/1.6 var(--padrao);
+    color: var(--texto-suave);
+    max-width: 520px;
+    margin: 14px auto 0;
+}
+
+/* ======================================================================
+   REVELAR AO ROLAR A TELA
+   ====================================================================== */
+.revelar {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.revelar.visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .revelar {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/* ======================================================================
+   RESPONSIVO
+   ====================================================================== */
+@media screen and (min-width: 640px) {
+    .treino-stats {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .treino-hero {
+        flex-direction: row;
+        text-align: left;
+        padding: 56px 0 64px;
+    }
+
+    .treino-hero-texto {
+        text-align: left;
+        flex: 1;
+    }
+
+    .treino-hero-subtitulo,
+    .treino-hero-titulo {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .treino-hero-visual {
+        flex: 0 0 auto;
+        max-width: 340px;
+    }
+
+    .treino-cta-grupo.centro {
+        justify-content: flex-start;
+    }
+}

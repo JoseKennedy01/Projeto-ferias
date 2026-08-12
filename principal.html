@@ -25,7 +25,7 @@
             <span id="carrinho-contador">0</span>
         </span>
 
-        <a href="paginas/login.html" class="login-link">
+        <a href="paginas/login.html?redirect=../principal.html" class="login-link">
             <span class="material-icons">account_circle</span>
             <span class="login-texto">Login</span>
         </a>
@@ -42,7 +42,7 @@
         <a href="paginas/treino.html">Treinos</a>
         <a href="paginas/sup.html">Suplementos</a>
         <a href="paginas/acessorios.html">Acessórios</a>
-        <a href="paginas/login.html" class="nav-login">Login</a>
+        <a href="paginas/login.html?redirect=../principal.html" class="nav-login">Login</a>
     </nav>
 
     <main>
@@ -52,7 +52,7 @@
                 <a href="paginas/saibamais.html">Saiba mais</a>
         </section>
 
-        <section class="somos">
+        <section class="somos" id="quem-somos">
             <img src="imagens/homem-treinando.png" alt="Homem treinando">
 
             <p>QUEM SOMOS</p>
@@ -64,9 +64,9 @@
 
         </section>
         
-        <section class="feedback">
+        <section class="feedback" id="fale-conosco">
             <h2>Fale Conosco</h2>
-            <form action="#" method="get"> 
+            <form action="#" method="get" id="form-contato"> 
                 <div class="box">
                     <p>
                         <label for="nome">Nome</label>
@@ -83,7 +83,7 @@
                         <textarea name="desc" id="desc" required minlength="20" maxlength="500" placeholder="Sua descrição"></textarea>
                     </p>
                     
-                    <input type="button" value="Enviar" class="botao">
+                    <input type="submit" value="Enviar" class="botao">
                     <input type="reset" value="Limpar">
                 </div>
             </form>
@@ -111,8 +111,16 @@
     </aside>
 
     <script src="scripts/carrinho.js"></script>
+    <script src="scripts/toast.js"></script>
     <script src="scripts/principal.js"></script>
+    <script src="scripts/auth.js"></script>
     <script src="scripts/tema.js"></script>
+    <script src="scripts/busca-utils.js"></script>
+    <script src="scripts/busca-paginas.js"></script>
+    <script src="scripts/busca-service.js"></script>
+    <script src="scripts/busca-indice.js"></script>
+    <script src="scripts/busca-dropdown.js"></script>
+    <script src="scripts/treino-dados.js"></script>
 
     <footer class="rodape">
         <div class="rodape-conteudo">
@@ -122,22 +130,11 @@
                 Suplementos, treinos e acessórios para quem leva o treino a sério.
               </p>
             </div>
-
-            <div class="rodape-coluna">
-              <h4>Institucional</h4>
-              <ul>
-                <li><a href="#">Sobre nós</a></li>
-                <li><a href="#">Política de Trocas</a></li>
-                <li><a href="#">Termos de Uso</a></li>
-                <li><a href="#">Privacidade</a></li>
-              </ul>
-            </div>
-
             <div class="rodape-coluna">
               <h4>Categorias</h4>
               <ul>
                 <li><a href="paginas/sup.html">Suplementos</a></li>
-                <li><a href="paginas/treinos.html">Treinos</a></li>
+                <li><a href="paginas/treino.html">Treinos</a></li>
                 <li><a href="paginas/vestimentas.html">Vestimentas</a></li>
                 <li><a href="paginas/acessorios.html">Acessórios</a></li>
               </ul>

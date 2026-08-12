@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fitness Stok</title>
+    <title>Treinos | Fitness Stok</title>
     <link rel="stylesheet" href="../estilos/principal.css">
     <link rel="stylesheet" href="../estilos/media-queries.css">
+    <link rel="stylesheet" href="../estilos/treino.css">
     <link rel="shortcut icon" href="../imagens/favicon.png" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
@@ -25,7 +26,7 @@
             <span id="carrinho-contador">0</span>
         </span>
 
-        <a href="paginas/login.html" class="login-link">
+        <a href="login.html?redirect=treino.html" class="login-link">
             <span class="material-icons">account_circle</span>
             <span class="login-texto">Login</span>
         </a>
@@ -38,14 +39,120 @@
     </header>
 
     <nav>
-        <a href="./roupas.html">Vestimentas</a>
-        <a href="./treino.html">Treinos</a>
-        <a href="./sup.html">Suplementos</a>
-        <a href="./acessorios.html">Acessórios</a>
-        <a href="./login.html" class="nav-login">Login</a>
+        <a href="roupas.html">Vestimentas</a>
+        <a href="treino.html">Treinos</a>
+        <a href="sup.html">Suplementos</a>
+        <a href="acessorios.html">Acessórios</a>
+        <a href="login.html?redirect=treino.html" class="nav-login">Login</a>
     </nav>
 
-        <!-- ===================== PAINEL DO CARRINHO ===================== -->
+    <main>
+
+        <!-- ===================== HERO ===================== -->
+        <section class="treino-hero treino-secao">
+            <div class="treino-hero-visual">
+                <img src="../imagens/aluna e personal.webp" alt="Pessoa treinando com halteres">
+            </div>
+
+            <div class="treino-hero-texto">
+                <h2 class="treino-hero-titulo">Seu treino. Seu objetivo. <span>Sua evolução.</span></h2>
+                <p class="treino-hero-subtitulo">Encontre o treino ideal para seus objetivos ou conte com o acompanhamento de um personal para montar uma rotina personalizada para você.</p>
+                <div class="treino-cta-grupo centro">
+                    <a href="#treinos-personalizados" class="btn-primario">Conhecer treinos</a>
+                    <a href="#personal-trainers" class="btn-secundario">Encontrar um personal</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== TREINOS PERSONALIZADOS ===================== -->
+        <section class="treino-secao treino-personalizados" id="treinos-personalizados">
+            <div class="treino-secao-cabecalho">
+                <span class="secao-eyebrow">AGORA É COM VOCÊ</span>
+                <h2 class="treino-secao-titulo">Treinos personalizados</h2>
+                <p class="treino-secao-subtitulo">Montados de acordo com seu objetivo, nível de experiência, disponibilidade e frequência de treino.</p>
+            </div>
+
+            <!-- Estado: usuário deslogado -->
+            <div class="treino-estado" id="treino-estado-deslogado">
+                <div class="treino-login-card">
+                    <span class="material-icons">lock_open</span>
+                    <h3>Quer ter um treino feito para você?</h3>
+                    <p>Crie sua conta ou entre para acessar seus treinos personalizados e acompanhar sua evolução.</p>
+                    <div class="treino-cta-grupo centro">
+                        <a href="login.html?redirect=treino.html" class="btn-primario">Entrar</a>
+                        <a href="cadastro.html?redirect=treino.html" class="btn-secundario">Criar conta</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Estado: usuário logado -->
+            <div class="treino-estado" id="treino-estado-logado">
+                <div class="treino-boasvindas">
+                    <h3>Bem-vindo(a) de volta!</h3>
+                    <p>Seu treino personalizado está pronto para você.</p>
+                </div>
+                <div class="treino-grid-cards" id="treino-grid-treinos"></div>
+            </div>
+        </section>
+
+        <!-- ===================== COMO FUNCIONA ===================== -->
+        <section class="treino-secao" id="como-funciona">
+            <div class="treino-secao-cabecalho">
+                <span class="secao-eyebrow">O PROCESSO</span>
+                <h2 class="treino-secao-titulo">Como funciona?</h2>
+            </div>
+            <div class="treino-passos" id="treino-passos"></div>
+        </section>
+
+        <!-- ===================== PERSONAL TRAINERS ===================== -->
+        <section class="treino-secao" id="personal-trainers">
+            <div class="treino-secao-cabecalho">
+                <span class="secao-eyebrow">PROFISSIONAIS</span>
+                <h2 class="treino-secao-titulo">Encontre o personal ideal para você</h2>
+                <p class="treino-secao-subtitulo">Conte com profissionais especializados para ajudar você a alcançar seus objetivos.</p>
+            </div>
+            <div class="treino-grid-personais" id="treino-grid-personais"></div>
+        </section>
+
+        <!-- ===================== BANNER DE CONTATO ===================== -->
+        <section class="treino-secao" id="contato-personal">
+            <div class="treino-contato-banner">
+                <span class="secao-eyebrow">TREINO SOB MEDIDA</span>
+                <h2>Quer um treino feito para você?</h2>
+                <p>Entre em contato com um dos nossos profissionais e explique seus objetivos. A partir dessas informações, o personal poderá montar uma rotina de treino pensada para sua evolução.</p>
+                <div class="treino-cta-grupo">
+                    <a href="#personal-trainers" class="btn-primario">Solicitar treino personalizado</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== AVALIAÇÕES ===================== -->
+        <section class="treino-secao" id="depoimentos">
+            <div class="treino-secao-cabecalho">
+                <span class="secao-eyebrow">DEPOIMENTOS</span>
+                <h2 class="treino-secao-titulo">O que nossos usuários dizem</h2>
+            </div>
+            <div class="treino-grid-avaliacoes" id="treino-grid-avaliacoes"></div>
+        </section>
+
+        <!-- ===================== ESTATÍSTICAS ===================== -->
+        <section class="treino-secao">
+            <div class="treino-stats" id="treino-stats"></div>
+        </section>
+
+        <!-- ===================== CTA FINAL ===================== -->
+        <section class="treino-secao treino-cta-final">
+            <h2>Pronto para começar sua evolução?</h2>
+            <p>Escolha um treino, encontre um personal e dê o próximo passo em direção aos seus objetivos.</p>
+            <div class="treino-cta-grupo centro">
+                <a href="#treinos-personalizados" class="btn-primario">Começar agora</a>
+                <a href="#personal-trainers" class="btn-secundario">Conhecer personais</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===================== PAINEL DO CARRINHO ===================== -->
     <div id="carrinho-overlay" class="carrinho-overlay" onclick="fecharCarrinho()"></div>
     <aside id="carrinho-painel" class="carrinho-painel" aria-hidden="true">
         <div class="carrinho-topo">
@@ -64,44 +171,41 @@
         </div>
     </aside>
 
-    <script src="../scripts/principal.js"></script>
-    <script src="../scripts/sup.js"></script>
     <script src="../scripts/carrinho.js"></script>
+    <script src="../scripts/principal.js"></script>
     <script src="../scripts/tema.js"></script>
+    <script src="../scripts/auth.js"></script>
+    <script src="../scripts/busca-utils.js"></script>
+    <script src="../scripts/busca-paginas.js"></script>
+    <script src="../scripts/busca-service.js"></script>
+    <script src="../scripts/busca-indice.js"></script>
+    <script src="../scripts/busca-dropdown.js"></script>
+    <script src="../scripts/treino-dados.js"></script>
+    <script src="../scripts/treino.js"></script>
 
     <footer class="rodape">
         <div class="rodape-conteudo">
-          <div class="rodape-marca">
-            <h3 class="rodape-titulo">FITNESS <span>STOK</span></h3>
-            <p class="rodape-texto">
-              Suplementos, treinos e acessórios para quem leva o treino a sério.
-            </p>
-          </div>
+            <div class="rodape-marca">
+              <h3 class="rodape-titulo">FITNESS <span>STOK</span></h3>
+              <p class="rodape-texto">
+                Suplementos, treinos e acessórios para quem leva o treino a sério.
+              </p>
+            </div>
 
-          <div class="rodape-coluna">
-            <h4>Institucional</h4>
-            <ul>
-              <li><a href="#">Sobre nós</a></li>
-              <li><a href="#">Política de Trocas</a></li>
-              <li><a href="#">Termos de Uso</a></li>
-              <li><a href="#">Privacidade</a></li>
-            </ul>
-          </div>
-
-          <div class="rodape-coluna">
-            <h4>Categorias</h4>
-            <ul>
-              <li><a href="./sup.html">Suplementos</a></li>
-              <li><a href="./treino.html">Treinos</a></li>
-              <li><a href="./roupas.html">Vestimentas</a></li>
-              <li><a href="./acessorios.html">Acessórios</a></li>
-            </ul>
-          </div>
+            <div class="rodape-coluna">
+              <h4>Categorias</h4>
+              <ul>
+                <li><a href="sup.html">Suplementos</a></li>
+                <li><a href="treino.html">Treinos</a></li>
+                <li><a href="roupas.html">Vestimentas</a></li>
+                <li><a href="acessorios.html">Acessórios</a></li>
+              </ul>
+            </div>
         </div>
 
         <div class="rodape-base">
-          <p>&copy; 2026 Fitness Stok. Todos os direitos reservados.</p>
-          <p>Desenvolvido por <strong>José Kennedy</strong> e <strong>Thiago Rodrigues</strong></p>
+        <p>&copy; 2026 Fitness Stok. Todos os direitos reservados.</p>
+        <p>Desenvolvido por <strong>José Kennedy</strong> e <strong>Thiago Rodrigues</strong></p>
         </div>
     </footer>
 </body>

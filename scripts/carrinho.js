@@ -140,14 +140,9 @@ function finalizarCompra() {
     var itens = lerCarrinho();
     if (itens.length === 0) return;
 
-    // Sem backend por enquanto: só confirma visualmente e limpa o carrinho.
-    // Quando tiverem uma página/checkout de verdade, é só trocar este alert
-    // por um redirecionamento (ex: window.location.href = 'checkout.html').
     alert('Pedido registrado! Em breve essa etapa vai se conectar a um checkout de verdade.');
     limparCarrinho();
     fecharCarrinho();
 }
 
-// Assim que qualquer página carregar, o badge já nasce
-// no estado certo (escondido se o carrinho estiver vazio)
 document.addEventListener('DOMContentLoaded', atualizarBadgeCarrinho);

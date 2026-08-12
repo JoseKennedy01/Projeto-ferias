@@ -59,12 +59,6 @@
         margin-top: 80px;
     }
 
-    main  section.somos {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
     #carrinho-contador {
         min-width: 19px;
         height: 19px;
@@ -97,6 +91,10 @@
         grid-area: eyebrow;
         order: 0;
         align-self: end;
+        justify-self: start;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     main section.somos p:first-of-type::after {
@@ -158,12 +156,6 @@
 
     nav a {
         padding: 12px 20px;
-    }
-
-     main  section.somos {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
     }
 
     main section.somos {

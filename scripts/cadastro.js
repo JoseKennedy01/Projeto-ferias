@@ -58,4 +58,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     campoSenha.addEventListener("input", validarTudo);
     campoConfirmar.addEventListener("input", validarTudo);
+
+    const formulario = document.getElementById("form-cadastro");
+    if (formulario) {
+        formulario.addEventListener("submit", function (evento) {
+            evento.preventDefault();
+
+            definirSessaoAtiva();
+            mostrarToast("Conta criada com sucesso!", "sucesso");
+
+            setTimeout(function () {
+                window.location.href = obterRedirecionamento('../principal.html');
+            }, 1500);
+        });
+    }
 });

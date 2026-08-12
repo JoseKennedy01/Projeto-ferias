@@ -852,3 +852,116 @@ div button.limpar:hover {
     text-align: center;
   }
 }
+/* ===================== TOAST DE FEEDBACK (mesmo estilo de login/cadastro) ===================== */
+.toast-mensagem {
+    position: fixed;
+    left: 50%;
+    bottom: 30px;
+    transform: translate(-50%, 20px);
+    background-color: var(--terc-cor);
+    color: var(--dest);
+    font-family: var(--padrao);
+    font-weight: bold;
+    font-size: 0.95em;
+    padding: 14px 22px;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 100;
+    max-width: 90vw;
+    text-align: center;
+}
+
+.toast-mensagem.visivel {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+/* ===================== DROPDOWN DE BUSCA GLOBAL ===================== */
+.busca-painel {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background-color: var(--cartao);
+    border: 1px solid var(--cartao-borda);
+    border-radius: 12px;
+    box-shadow: var(--sombra-forte);
+    overflow: hidden;
+    z-index: 60;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.busca-estado {
+    padding: 18px 16px;
+    text-align: center;
+    font: 500 0.85em var(--padrao);
+    color: var(--texto-suave);
+}
+
+.busca-estado span {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.9em;
+}
+
+.busca-lista {
+    list-style: none;
+    padding: 6px;
+    margin: 0;
+}
+
+.busca-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.busca-item:hover,
+.busca-item.selecionado {
+    background-color: var(--fundo);
+}
+
+.busca-item .material-icons {
+    color: var(--dest);
+    font-size: 1.3em;
+    flex-shrink: 0;
+}
+
+.busca-item-texto {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.busca-item-texto strong {
+    font: 600 0.9em var(--padrao);
+    color: var(--texto);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.busca-item-texto small {
+    font: 500 0.75em var(--padrao);
+    color: var(--texto-suave);
+    letter-spacing: 0.3px;
+}
+
+@media screen and (max-width: 767px) {
+    .busca-painel {
+        position: fixed;
+        left: 12px;
+        right: 12px;
+        top: var(--header-altura, 70px);
+        max-height: calc(100vh - var(--header-altura, 70px) - 20px);
+    }
+}

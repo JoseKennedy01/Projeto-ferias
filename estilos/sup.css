@@ -20,8 +20,10 @@
 
 body {
     font-family: var(--padrao);
-    background-color: var(--cor0);
+    background-color: var(--fundo);
+    color: var(--texto);
     overflow-x: hidden;
+    transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 main {
@@ -61,8 +63,8 @@ section.anuncio img {
 
 /* Filtro */
 .filtro {
-    background-color: #f5f5f5;
-    border: 2px solid #ccc;
+    background-color: var(--cartao);
+    border: 2px solid var(--cartao-borda);
     border-radius: 10px;
     padding: 20px;
     width: 250px;
@@ -80,10 +82,10 @@ section.anuncio img {
 }
 
 .grupo h3 {
-    color: #333;
+    color: var(--texto);
     font-size: 18px;
     margin-bottom: 8px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--borda);
     padding-bottom: 5px;
 }
 
@@ -91,7 +93,7 @@ section.anuncio img {
     display: block;
     margin: 6px 0;
     font-size: 16px;
-    color: #555;
+    color: var(--texto-suave);
 }
 
 .grupo label:hover {
@@ -119,7 +121,8 @@ section.venda {
   }  
 
 .produto {
-    border: 2px solid #E0E0E0;
+    border: 2px solid var(--borda);
+    background-color: var(--cartao);
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
@@ -127,6 +130,7 @@ section.venda {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
 }
 
 .produto img {

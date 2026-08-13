@@ -881,19 +881,16 @@ div button.limpar:hover {
 }
 
 /* ===================== DROPDOWN DE BUSCA GLOBAL ===================== */
+/* Posição, largura e altura máxima são calculadas em JS (posicionarPainel,
+   em busca-dropdown.js) com base na caixa de busca real — o painel vive
+   no <body>, então aqui só cuida da aparência. */
 .busca-painel {
-    position: absolute;
-    top: calc(100% + 8px);
-    left: 0;
-    right: 0;
     background-color: var(--cartao);
     border: 1px solid var(--cartao-borda);
     border-radius: 12px;
     box-shadow: var(--sombra-forte);
-    overflow: hidden;
-    z-index: 60;
-    max-height: 70vh;
     overflow-y: auto;
+    z-index: 200;
 }
 
 .busca-estado {
@@ -954,14 +951,4 @@ div button.limpar:hover {
     font: 500 0.75em var(--padrao);
     color: var(--texto-suave);
     letter-spacing: 0.3px;
-}
-
-@media screen and (max-width: 767px) {
-    .busca-painel {
-        position: fixed;
-        left: 12px;
-        right: 12px;
-        top: var(--header-altura, 70px);
-        max-height: calc(100vh - var(--header-altura, 70px) - 20px);
-    }
 }

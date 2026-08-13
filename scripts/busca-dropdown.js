@@ -32,13 +32,34 @@ var BuscaDropdown = (function () {
         painel.setAttribute('role', 'listbox');
         painel.hidden = true;
 
-        caixa.appendChild(painel);
+        // Anexado ao <body> (e não dentro da caixa de busca), porque
+        // a caixa tem "overflow: hidden" pra arredondar as bordas —
+        // um filho posicionado nela seria cortado/escondido.
+        document.body.appendChild(painel);
         return painel;
+    }
+
+    // Calcula a posição do painel com base na caixa de busca real,
+    // já que ele não é mais filho dela no DOM.
+    function posicionarPainel() {
+        var rect = caixa.getBoundingClientRect();
+        var espacoAbaixo = window.innerHeight - rect.bottom - 16;
+
+        painel.style.position = 'fixed';
+        painel.style.top = (rect.bottom + 8) + 'px';
+        painel.style.left = rect.left + 'px';
+        painel.style.width = rect.width + 'px';
+        painel.style.maxHeight = Math.max(150, Math.min(espacoAbaixo, window.innerHeight * 0.7)) + 'px';
+    }
+
+    function mostrarPainel() {
+        posicionarPainel();
+        painel.hidden = false;
     }
 
     function renderEstado(html) {
         painel.innerHTML = html;
-        painel.hidden = false;
+        mostrarPainel();
     }
 
     function renderCarregando() {
@@ -82,7 +103,7 @@ var BuscaDropdown = (function () {
 
         painel.innerHTML = '';
         painel.appendChild(listaEl);
-        painel.hidden = false;
+        mostrarPainel();
     }
 
     function escaparHtml(texto) {
@@ -200,7 +221,6 @@ var BuscaDropdown = (function () {
         caixa = document.querySelector('header div.busca');
         if (!campo || !caixa) return;
 
-        caixa.style.position = caixa.style.position || 'relative';
         criarPainel();
 
         // Começa a montar o índice em segundo plano assim que a página carrega,
@@ -217,8 +237,23 @@ var BuscaDropdown = (function () {
             if (campo.value.trim().length >= 1) aoDigitar();
         });
 
+        // O painel vive no <body>, não mais dentro da caixa — por isso o
+        // clique-fora precisa considerar os dois.
         document.addEventListener('click', function (evento) {
-            if (!caixa.contains(evento.target)) fechar();
+            if (!caixa.contains(evento.target) && !painel.contains(evento.target)) {
+                fechar();
+            }
+        });
+
+        // Como a posição é calculada uma vez (fixed) a partir da caixa,
+        // rolar ou redimensionar a tela desalinharia o painel — mais
+        // simples e seguro fechar nesses casos.
+        window.addEventListener('scroll', function () {
+            if (painel && !painel.hidden) fechar();
+        }, { passive: true });
+
+        window.addEventListener('resize', function () {
+            if (painel && !painel.hidden) fechar();
         });
     }
 

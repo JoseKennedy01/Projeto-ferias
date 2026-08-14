@@ -4,7 +4,12 @@ var CHAVE_CARRINHO = 'fitness-stok-carrinho';
 function lerCarrinho() {
     try {
         var dados = localStorage.getItem(CHAVE_CARRINHO);
-        return dados ? JSON.parse(dados) : [];
+        var itens = dados ? JSON.parse(dados) : [];
+        // Garantia de integridade da propriedade quantidade
+        return itens.map(function(item) {
+            item.quantidade = parseInt(item.quantidade, 10) || 1;
+            return item;
+        });
     } catch (erro) {
         return [];
     }
@@ -15,7 +20,7 @@ function salvarCarrinho(itens) {
 }
 
 function formatarPreco(valor) {
-    return 'R$ ' + valor.toFixed(2).replace('.', ',');
+    return 'R$ ' + Number(valor).toFixed(2).replace('.', ',');
 }
 
 // ---------- Badge do ícone ----------
@@ -24,10 +29,14 @@ function atualizarBadgeCarrinho() {
     if (!badge) return;
 
     var itens = lerCarrinho();
-    var quantidade = itens.length;
+    
+    // Soma a quantidade total de todos os itens
+    var totalItens = itens.reduce(function (acc, item) {
+        return acc + (parseInt(item.quantidade, 10) || 1);
+    }, 0);
 
-    if (quantidade > 0) {
-        badge.textContent = quantidade > 99 ? '99+' : quantidade;
+    if (totalItens > 0) {
+        badge.textContent = totalItens > 99 ? '99+' : totalItens;
         badge.classList.add('visivel');
     } else {
         badge.textContent = '0';
@@ -58,7 +67,8 @@ function renderizarPainelCarrinho() {
     var total = 0;
 
     itens.forEach(function (item, indice) {
-        total += item.preco;
+        var qtd = parseInt(item.quantidade, 10) || 1;
+        total += item.preco * qtd;
 
         var linha = document.createElement('div');
         linha.className = 'carrinho-item';
@@ -66,7 +76,14 @@ function renderizarPainelCarrinho() {
             '<img src="' + (item.imagem || '') + '" alt="' + item.nome + '" onerror="this.style.visibility=\'hidden\'">' +
             '<div class="carrinho-item-info">' +
                 '<h3>' + item.nome + '</h3>' +
-                '<span>' + formatarPreco(item.preco) + '</span>' +
+                '<div class="carrinho-item-preco-qtd">' +
+                    '<span>' + formatarPreco(item.preco) + '</span>' +
+                    '<div class="qtd-seletor">' +
+                        '<button type="button" class="qtd-btn qtd-menos" data-indice="' + indice + '">-</button>' +
+                        '<span class="qtd-numero">' + qtd + '</span>' +
+                        '<button type="button" class="qtd-btn qtd-mais" data-indice="' + indice + '">+</button>' +
+                    '</div>' +
+                '</div>' +
             '</div>' +
             '<button class="carrinho-item-remover" aria-label="Remover item" data-indice="' + indice + '">&times;</button>';
 
@@ -75,9 +92,23 @@ function renderizarPainelCarrinho() {
 
     totalEl.textContent = formatarPreco(total);
 
+    // Eventos de remover item
     lista.querySelectorAll('.carrinho-item-remover').forEach(function (botao) {
         botao.addEventListener('click', function () {
             removerDoCarrinho(parseInt(botao.dataset.indice, 10));
+        });
+    });
+
+    // Eventos de alterar quantidade
+    lista.querySelectorAll('.qtd-menos').forEach(function (botao) {
+        botao.addEventListener('click', function () {
+            alterarQuantidade(parseInt(botao.dataset.indice, 10), -1);
+        });
+    });
+
+    lista.querySelectorAll('.qtd-mais').forEach(function (botao) {
+        botao.addEventListener('click', function () {
+            alterarQuantidade(parseInt(botao.dataset.indice, 10), 1);
         });
     });
 }
@@ -108,10 +139,30 @@ function fecharCarrinho() {
 
 // ---------- Ações do carrinho ----------
 
-// Chamada pelos botões "Adicionar" de cada produto
-function adicionarCarrinho(nome, preco, imagem) {
+/**
+ * Chamada pelos botões "Adicionar" dos produtos.
+ * Aceita quantidade personalizada (padrão é 1).
+ */
+function adicionarCarrinho(nome, preco, imagem, quantidadeAdicionar) {
     var itens = lerCarrinho();
-    itens.push({ nome: nome, preco: preco, imagem: imagem || '' });
+    var qtdAdic = parseInt(quantidadeAdicionar, 10) || 1;
+
+    // Verifica se o item já existe no carrinho para apenas aumentar a quantidade
+    var itemExistente = itens.find(function(item) {
+        return item.nome === nome;
+    });
+
+    if (itemExistente) {
+        itemExistente.quantidade = (parseInt(itemExistente.quantidade, 10) || 1) + qtdAdic;
+    } else {
+        itens.push({
+            nome: nome,
+            preco: preco,
+            imagem: imagem || '',
+            quantidade: qtdAdic
+        });
+    }
+
     salvarCarrinho(itens);
     atualizarBadgeCarrinho();
 
@@ -120,6 +171,23 @@ function adicionarCarrinho(nome, preco, imagem) {
     if (painel && painel.classList.contains('aberto')) {
         renderizarPainelCarrinho();
     }
+}
+
+function alterarQuantidade(indice, delta) {
+    var itens = lerCarrinho();
+    if (!itens[indice]) return;
+
+    var qtdAtual = parseInt(itens[indice].quantidade, 10) || 1;
+    itens[indice].quantidade = qtdAtual + delta;
+
+    // Se a quantidade for a 0 ou menos, remove o item
+    if (itens[indice].quantidade <= 0) {
+        itens.splice(indice, 1);
+    }
+
+    salvarCarrinho(itens);
+    atualizarBadgeCarrinho();
+    renderizarPainelCarrinho();
 }
 
 function removerDoCarrinho(indice) {
@@ -146,3 +214,39 @@ function finalizarCompra() {
 }
 
 document.addEventListener('DOMContentLoaded', atualizarBadgeCarrinho);
+
+// Aumenta ou diminui o número visual no card do produto
+function alterarQtdCard(botao, delta) {
+    var seletor = botao.parentElement;
+    var numeroEl = seletor.querySelector('.qtd-card-numero');
+    if (!numeroEl) return;
+
+    var qtdAtual = parseInt(numeroEl.textContent, 10) || 1;
+    qtdAtual += delta;
+
+    if (qtdAtual < 1) qtdAtual = 1; // Não deixa baixar de 1 no card
+
+    numeroEl.textContent = qtdAtual;
+}
+
+// Lê a quantidade atual do card e envia para o carrinho
+function adicionarDoCard(botao, nome, preco, imagem) {
+    var produtoCard = botao.closest('.produto');
+    var qtd = 1;
+
+    if (produtoCard) {
+        var numeroEl = produtoCard.querySelector('.qtd-card-numero');
+        if (numeroEl) {
+            qtd = parseInt(numeroEl.textContent, 10) || 1;
+        }
+    }
+
+    // Chama a função centralizada repassando a quantidade lida
+    adicionarCarrinho(nome, preco, imagem, qtd);
+
+    // Reseta o contador do card para 1 após adicionar
+    if (produtoCard) {
+        var numeroEl = produtoCard.querySelector('.qtd-card-numero');
+        if (numeroEl) numeroEl.textContent = '1';
+    }
+}
